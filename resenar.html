@@ -14,7 +14,7 @@ Grupp gud, robin -->
       <form class="resForm">
         <h3>Registrera dina uppgifter nedan:</h3>
         <label for="antalResenarer">Antal Resenärer:</label>
-        <input id="antalResenarer" type="text" />
+        <input id="antalResenarer" type="text" required />
 
         <label for="enkelPendling">Enkel eller pendling:</label>
         <select name="" id="enkelPendling">
@@ -23,7 +23,7 @@ Grupp gud, robin -->
         </select>
 
         <label for="nar">När önskar du resa:</label>
-        <input type="datetime-local" name="" id="nar" />
+        <input type="datetime-local" name="" id="nar" required />
 
         <label for="friText">
           Övrigt: (tex. rökfritt, pälsallergiker etc.)
@@ -31,13 +31,13 @@ Grupp gud, robin -->
         <textarea name="" id="friText" cols="30" rows="10"></textarea>
 
         <label for="fran">Från:</label>
-        <input type="text" id="fran" />
+        <input type="text" id="fran" required />
 
         <label for="till">Till:</label>
-        <input type="text" id="till" />
+        <input type="text" id="till" required />
 
         <label for="pris">Ersättning du är villig att betala:</label>
-        <input type="text" id="pris" />
+        <input type="text" id="pris" required />
         <button id="saveButton" onClick="{saveResForm(event);}">
           Registrera uppgifter
         </button>
