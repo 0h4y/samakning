@@ -7,8 +7,43 @@ Grupp gud, robin -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HERO - Resenär - Registrera dig som resenär här</title>
+    <link rel="stylesheet" href="src/resenar.css" />
   </head>
   <body>
+    <div class="formContainer">
+      <form class="resForm">
+        <h3>Registrera dina uppgifter nedan:</h3>
+        <label for="antalResenarer">Antal Resenärer:</label>
+        <input id="antalResenarer" type="text" />
+
+        <label for="enkelPendling">Enkel eller pendling:</label>
+        <select name="" id="enkelPendling">
+          <option value="enkel">Enkel</option>
+          <option value="pendling">Pendling</option>
+        </select>
+
+        <label for="nar">När önskar du resa:</label>
+        <input type="datetime-local" name="" id="nar" />
+
+        <label for="friText">
+          Övrigt: (tex. rökfritt, pälsallergiker etc.)
+        </label>
+        <textarea name="" id="friText" cols="30" rows="10"></textarea>
+
+        <label for="fran">Från:</label>
+        <input type="text" id="fran" />
+
+        <label for="till">Till:</label>
+        <input type="text" id="till" />
+
+        <label for="pris">Ersättning du är villig att betala:</label>
+        <input type="text" id="pris" />
+        <button id="saveButton" onClick="{saveResForm(event);}">
+          Registrera uppgifter
+        </button>
+      </form>
+    </div>
+
     <script src="src/resenar.js"></script>
   </body>
 </html>
