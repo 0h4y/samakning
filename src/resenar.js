@@ -1,0 +1,3 @@
+/*Javascript för resenär nedan...
+Grupp gud, robin
+*/
