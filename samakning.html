@@ -13,6 +13,11 @@ Grupp axel, martin L -->
   <body>
 
     <form>
+      <div>
+        <div>
+          <label for="fornamn">Förnamn</label>
+          <input type="text" id="fornamn" name="fornamn" placeholder="John" required>
+        </div>
       <!--Inga symboler eller nummer-->
       <label for="fornamn">Förnamn</label>
       <input type="text" id="fornamn" name="fornamn" placeholder="John" required>
@@ -22,12 +27,21 @@ Grupp axel, martin L -->
 
       <label for="fodelsedatum">Födelsedatum</label>
       <input type="date" id="fodelsedatum" name="fodelsedatum" required>
+
+
+
     </form>
 
+    <div id="bilreseval">
+      <p>Här väljer du ifall du har bil och är förare eller om du är resenär</p>
+      <button>Bilist</button>
+      <button>Resenär</button>
+    </div>
 
 
 
-    <script src="src/samakning.js"></script>
+
+    <!--<script src="src/samakning.js"></script>-->
   </body>
 
 </html>
