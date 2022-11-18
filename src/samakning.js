@@ -1,9 +1,4 @@
-/*Javascript för samåkning nedan...
-Grupp axel, martin L
-Hej
-
-Hej från Martin L
-*/
+/*Javascript för samåkning nedan... Grupp Axel, Martin L*/
 
 //Kör när html laddar
 window.onload =function(){
@@ -18,4 +13,11 @@ window.onload =function(){
     let fodelsedatum=document.getElementById("fodelsedatum");
     //Gör om Minimum åldern av användarna till 18
     fodelsedatum.setAttribute("max", maxdateStr );
+
+    //dagens datum -120 år, och +1 månad för Date() objected listar månader från 0-11, medans setAtrribute(min) tar in det från 1-12
+    let mindate=new Date(date.getFullYear()-120, date.getMonth()+1,date.getDate());
+    //Konverterar till sträng, för att det är så setAttribute vill ha det på sitt andra argument
+    let mindateStr=""+mindate.getFullYear()+"-"+mindate.getMonth()+"-"+mindate.getDate();
+    //Gör om Maxåldern av användarna till 120år
+    fodelsedatum.setAttribute("min", mindateStr );
 }

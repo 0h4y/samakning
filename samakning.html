@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!-- HTML för samåkning nedan...
-Grupp axel, martin L -->
+<!-- HTML för samåkning nedan... Grupp Axel, Martin L -->
 <html lang="sv">
 
   <head>
@@ -11,10 +10,10 @@ Grupp axel, martin L -->
   </head>
 
   <body>
-
+    <p>Här fyller du i uppgifter om dig själv som behövs för att kunna boka samåkning</p>
     <form>
       <div>
-        <!--Lägg till JS-->
+        
         <div>
           <label for="fornamn">Förnamn</label>
           <input type="text" id="fornamn" name="fornamn" placeholder="John" required>
@@ -27,7 +26,7 @@ Grupp axel, martin L -->
         
         <div>
           <label for="fodelsedatum">Födelsedatum</label>
-          <!--Lägg till JS så att man måste vara 18+ för att boka-->
+          <!--JS så max blir dagens datum -18år, = man måste va 18+ för att boka.-->
           <!--Lägg till JS så att man som mest kan vara 120år för att boka-->
           <input type="date" id="fodelsedatum" name="fodelsedatum" max="2020-12-31" min="1900-01-01" required>
         </div>
@@ -43,6 +42,7 @@ Grupp axel, martin L -->
         </div>
 
         <div>
+          <!--Lägg till JS, för validering på submit, så ej otillåtna tecken används-->
           <input type="submit" value="Spara Uppgifter">
           <input type="reset">
         </div>
@@ -50,6 +50,8 @@ Grupp axel, martin L -->
     </form>
 
     <div id="bilreseval">
+      <!--Lägg till JS, för att dölja dessa knappar innan man har sparat sina uppgifter-->
+      <!--Lägg till JS, för att skicka vidare användaren till rätt nästa sida(medför uppgifterna)-->
       <p>Här väljer du ifall du har bil och är förare eller om du är resenär</p>
       <button>Bilist</button>
       <button>Resenär</button>
