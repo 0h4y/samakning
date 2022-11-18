@@ -12,24 +12,41 @@ Grupp axel, martin L -->
 
   <body>
 
-    <form>
+     <form>
       <div>
         <!--Lägg till JS-->
         <div>
           <label for="fornamn">Förnamn</label>
           <input type="text" id="fornamn" name="fornamn" placeholder="John" required>
         </div>
-      <label for="fornamn">Förnamn</label>
-      <input type="text" id="fornamn" name="fornamn" placeholder="John" required>
 
-      <label for="efternamn">Efternamn</label>
-      <input type="text" id="efternamn" name="efternamn" placeholder="Doe" required>
+        <div>
+          <label for="efternamn">Efternamn</label>
+          <input type="text" id="efternamn" name="efternamn" placeholder="Doe" required>
+        </div>
+        
+        <div>
+          <label for="fodelsedatum">Födelsedatum</label>
+          <!--Lägg till JS så att man måste vara 18+ för att boka-->
+          <!--Lägg till JS så att man som mest kan vara 120år för att boka-->
+          <input type="date" id="fodelsedatum" name="fodelsedatum" max="2020-12-31" min="1900-01-01" required>
+        </div>
 
-      <label for="fodelsedatum">Födelsedatum</label>
-      <input type="date" id="fodelsedatum" name="fodelsedatum" required>
+        <div>
+          <label for="mobil">Mobilnummer</label>
+          <input type="tel" id="mobil" name="mobil" placeholder="0707123456" maxlength="10" required>
+        </div>
 
+        <div>
+          <label for="epost">E-postadress:</label>
+          <input type="email" id="epost" name="epost" placeholder="john.doe@gmail.com" required>
+        </div>
 
-
+        <div>
+          <input type="submit" value="Spara Uppgifter">
+          <input type="reset">
+        </div>
+      </div>
     </form>
 
     <div id="bilreseval">
