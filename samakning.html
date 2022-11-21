@@ -11,17 +11,17 @@
 
   <body>
     <p>Här fyller du i uppgifter om dig själv som behövs för att kunna boka samåkning</p>
-    <form>
+    <form onsubmit="return validering()">
       <div>
         
         <div>
           <label for="fornamn">Förnamn</label>
-          <input type="text" id="fornamn" name="fornamn" placeholder="John" required>
+          <input type="text" id="Förnamn" class="namn" name="fornamn" placeholder="John" required>
         </div>
 
         <div>
           <label for="efternamn">Efternamn</label>
-          <input type="text" id="efternamn" name="efternamn" placeholder="Doe" required>
+          <input type="text" id="Efternamn" class="namn" name="efternamn" placeholder="Doe" required>
         </div>
         
         <div>
@@ -43,11 +43,12 @@
 
         <div>
           <!--Lägg till JS, för validering på submit, så ej otillåtna tecken används-->
-          <input type="submit" value="Spara Uppgifter">
+          <input type="submit" value="Spara Uppgifter" >
           <input type="reset">
         </div>
       </div>
     </form>
+    <p class="felmed"></p>
 
     <div id="bilreseval">
       <!--Lägg till JS, för att dölja dessa knappar innan man har sparat sina uppgifter-->
