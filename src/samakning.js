@@ -1,42 +1,42 @@
 /*Javascript för samåkning nedan... Grupp Axel, Martin L*/
 
-//Kör när html laddar
+// Kör när html laddar
 window.onload =function(){
 
-    //Får dagens datum år
+    // Får dagens datum år
     let date=new Date();
-    //dagens datum -18 år, och +1 månad för Date() objected listar månader från 0-11, medans setAtrribute(max) tar in det från 1-12
+    // dagens datum -18 år, och +1 månad för Date() objected listar månader från 0-11, medans setAtrribute(max) tar in det från 1-12
     let maxdate=new Date(date.getFullYear()-18, date.getMonth()+1,date.getDate());
-    //Konverterar till sträng, för att det är så setAttribute vill ha det på sitt andra argument
+    // Konverterar till sträng, för att det är så setAttribute vill ha det på sitt andra argument
     let maxdateStr=""+maxdate.getFullYear()+"-"+maxdate.getMonth()+"-"+maxdate.getDate();
-    //Hittar födelsedatum väljaren, och gör om det till en variabel som man kan använda för saker likt setAttribute
+    // Hittar födelsedatum väljaren, och gör om det till en variabel som man kan använda för saker likt setAttribute
     let fodelsedatum=document.getElementById("fodelsedatum");
-    //Gör om Minimum åldern av användarna till 18
+    // Gör om Minimum åldern av användarna till 18
     fodelsedatum.setAttribute("max", maxdateStr );
 
-    //dagens datum -120 år, och +1 månad för Date() objected listar månader från 0-11, medans setAtrribute(min) tar in det från 1-12
+    // dagens datum -120 år, och +1 månad för Date() objected listar månader från 0-11, medans setAtrribute(min) tar in det från 1-12
     let mindate=new Date(date.getFullYear()-120, date.getMonth()+1,date.getDate());
-    //Konverterar till sträng, för att det är så setAttribute vill ha det på sitt andra argument
+    // Konverterar till sträng, för att det är så setAttribute vill ha det på sitt andra argument
     let mindateStr=""+mindate.getFullYear()+"-"+mindate.getMonth()+"-"+mindate.getDate();
-    //Gör om Maxåldern av användarna till 120år
+    // Gör om Maxåldern av användarna till 120år
     fodelsedatum.setAttribute("min", mindateStr );
 }
 // Kollar validering på form, när man trycker på submit
 function validering(){
 
-    //Skaffar alla element med klassen namn
+    // Skaffar alla element med klassen namn
     const namn=document.querySelectorAll(".namn");
-    //Går igenom alla elemenr med klassen namn
+    // Går igenom alla elemenr med klassen namn
     namn.forEach(element => {
-        //Skaffar symbolerna i texten
+        // Skaffar symbolerna i texten
         let text=element.value;
-        //Går igenom varje symbol
+        // Går igenom varje symbol
         for (let i = 0; i < text.length; i++) {
-            //Väljer index i strängen
+            // Väljer index i strängen
             let thisLetter=text[i];
-            //Går igenom charcode på symbolen
+            // Går igenom charcode på symbolen
             let thisLetterChar=thisLetter.charCodeAt(0);
-            //Ser till att endast svenska alfabetet, bindesträck, och space är giltigt
+            // Ser till att endast svenska alfabetet, bindesträck, och space är giltigt
             if (thisLetterChar > 32   && (thisLetterChar < 45  || 
                 thisLetterChar > 45 ) && (thisLetterChar < 65  || 
                 thisLetterChar > 90 ) && (thisLetterChar < 97  ||
@@ -45,9 +45,9 @@ function validering(){
                 thisLetterChar > 230) && (thisLetterChar < 214 ||
                 thisLetterChar > 214) && (thisLetterChar < 246 || 
                 thisLetterChar > 246)){
-                    //Tillfällig alert
+                    // Tillfällig alert
                     alert("Otillåtna tecken i "+element.id);
-                    //Alertar inte flera gånger
+                    // Alertar inte flera gånger
                     break;
             }
             
@@ -62,13 +62,13 @@ function validering(){
     for (let i = 0; i < numbers.length; i++) {
         // Väljer index
         const thisNumber = numbers[i];
-        //Går genom charcode (symbol)
+        // Går genom charcode (symbol)
         let thisNumberChar=thisNumber.charCodeAt(0); 
         // Tillåter endast siffror       
         if (thisNumberChar < 48 || thisNumberChar > 57) {
-            //Tillfällig alert
+            // Tillfällig alert
             alert("Otillåtna tecken i Mobilnummer");
-            //Alertar inte flera gånger
+            // Alertar inte flera gånger
             break;
         }
     }
