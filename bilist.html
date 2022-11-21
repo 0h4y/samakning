@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <!-- HTML för bilist nedan...
-Grupp, mattias, savio, martin K -->
+Grupp, mattias, savio, martin K
+
+Platser/personer
+Enstaka resa/ pendling
+när? datum, tid
+från/till/resemål
+Fritext kommentar
+-->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HERO - Bilist - Registrera dig och ditt fordon här</title>
+    <script>
+      src="bilist.js" 
+      defer
+    </script>
+
+      <div id="error">
+        
+      </div>    
+      <!--Hämtar data från index -->
+      <form class="forms" action="" method="GET">
+      <div class="platser">
+        <label for="antPlats">Antal platser:</label>
+        <input type="text" id="antPlats" name="antPlats">
+      </div>
+
+      <div class="tur/retur">
+        <label for="turResa">Tur:</label>
+        <input type="checkbox" id="turResa" name="turResa">
+        <label for="returResa">Retur:</label>
+        <input type="checkbox" id="returResa" name="returResa">
+      </div>
+
+      <div class="tid/datum">
+        <label for="datum">Datum:</label>
+        <input type="date" id="tidDatum" name="tidDatum">
+
+        <label for="tid">Tid:</label>
+        <input type="time" id="tid" name="tid">
+      </div>
+
+      <div class="">
+        <label for="startResa">Startpunkt:</label>
+        <input type="text" id="startResa" name="startResa">
+        <label for="slutResa">slutpunkt:</label>
+        <input type="text" id="slutResa" name="slutResa">
+      </div>
+
+      <div class="">
+        Övriga kommentarer<br>
+        <textarea name="textRuta" rows="10" cols="50" placeholder="Allergier, djur, övriga önskemål..."></textarea>
+      </div>
+      <div class="submit">
+        <button type="submit">Skicka</button>
+      </div>
+
+    </form>
   </head>
   <body>
     <script src="src/bilist.js"></script>
