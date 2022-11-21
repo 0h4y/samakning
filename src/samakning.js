@@ -97,5 +97,4 @@ function validering(){
         document.getElementById("bilreseval").style.visibility="visible";
     }
     
-
 }
