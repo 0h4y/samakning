@@ -69,4 +69,23 @@ const saveResForm = (event) => {
   localStorage.setItem("fran", resFormData.fran);
   localStorage.setItem("till", resFormData.till);
   localStorage.setItem("pris", resFormData.pris);
+  
+  // localStorage.setItem("allaResor", JSON.stringify(allaResor));
+
+  // const resa = {antalResenarer: resFormData.antalResenarer, };
+  
+  let old = new Array();
+
+if(localStorage.getItem("allaResor")){
+  let old = JSON.parse(localStorage.getItem("allaResor"));
+}
+
+
+console.log(old);
+
+old.push(resFormData);
+console.log(old);
+localStorage.setItem("allaResor", JSON.stringify(old));
+console.log(JSON.parse(localStorage.getItem("allaResor")));
+
 };
