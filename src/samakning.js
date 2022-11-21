@@ -72,5 +72,6 @@ function validering(){
             break;
         }
     }
+    document.getElementById("bilreseval").style.visibility="visible";
 
 }
