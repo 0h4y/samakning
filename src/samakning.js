@@ -21,3 +21,37 @@ window.onload =function(){
     //Gör om Maxåldern av användarna till 120år
     fodelsedatum.setAttribute("min", mindateStr );
 }
+// Kollar validering på form, nä'r man trycker på submit
+function validering(){
+
+    //Skaffar alla element med klassen namn
+    const namn=document.querySelectorAll(".namn");
+    //Går igenom alla elemenr med klassen namn
+    namn.forEach(element => {
+        //Skaffar symbolerna i texten
+        let text=element.value;
+        //Går igenom varje symbol
+        for (let i = 0; i < text.length; i++) {
+            //Väljer idex i strängen
+            let thisLetter=text[i];
+            //Går igenom charcode på symbolen
+            let thisLetterChar=thisLetter.charCodeAt(0);
+            //Ser till att endast svenska alfabetet, bindesträck, och space 'är giltigt
+            if (thisLetterChar > 32   && (thisLetterChar < 45  || 
+                thisLetterChar > 45 ) && (thisLetterChar < 65  || 
+                thisLetterChar > 90 ) && (thisLetterChar < 97  ||
+                thisLetterChar > 122) && (thisLetterChar < 196 ||
+                thisLetterChar > 197) && (thisLetterChar < 227 ||
+                thisLetterChar > 230) && (thisLetterChar < 214 ||
+                thisLetterChar > 214) && (thisLetterChar < 246 || 
+                thisLetterChar > 246)){
+                    //Tillf'ällig alert
+                    alert("Otillåtna tecken i "+element.id);
+                    //Alertar inte flera gånger
+                    break;
+            }
+            
+        }
+    });
+
+}
