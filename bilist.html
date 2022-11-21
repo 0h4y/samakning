@@ -14,52 +14,79 @@ Fritext kommentar
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HERO - Bilist - Registrera dig och ditt fordon här</title>
+
     <script>
       src="bilist.js" 
       defer
     </script>
-
-      <div id="error">
-        
-      </div>    
+   
       <!--Hämtar data från index -->
       <form class="forms" action="" method="GET">
+
       <div class="platser">
         <label for="antPlats">Antal platser:</label>
-        <input type="text" id="antPlats" name="antPlats">
+        <select id="antPlats" name="antPlats">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+        </select>
       </div>
 
       <div class="tur/retur">
-        <label for="turResa">Tur:</label>
+        <label for="turResa">Tur/Retur:</label>
         <input type="checkbox" id="turResa" name="turResa">
-        <label for="returResa">Retur:</label>
-        <input type="checkbox" id="returResa" name="returResa">
+
       </div>
 
-      <div class="tid/datum">
-        <label for="datum">Datum:</label>
-        <input type="date" id="tidDatum" name="tidDatum">
-
+      <div class="datumTur">
+        <label for="avgång-datum">Avgång</label>
+        <input type="date" id="avgång-datum" name="avgång" required>
+      </div>
+      
+      <div class="tid">
         <label for="tid">Tid:</label>
-        <input type="time" id="tid" name="tid">
+        <input type="time" id="tid" name="tid" required>
       </div>
+
+      <div class="datumRetur">
+        <label for="hemgång-datum">Hemgång</label>
+        <input type="date" id="hemgång-datum" name="hemgång" required>
+      </div>
+
+      <div class="tid">
+        <label for="tid">Tid:</label>
+        <input type="time" id="tid" name="tid" required>
+      </div>
+      
 
       <div class="">
         <label for="startResa">Startpunkt:</label>
-        <input type="text" id="startResa" name="startResa">
+        <input type="text" id="startResa" name="startResa" required>
         <label for="slutResa">slutpunkt:</label>
-        <input type="text" id="slutResa" name="slutResa">
+        <input type="text" id="slutResa" name="slutResa" required>
       </div>
 
-      <div class="">
-        Övriga kommentarer<br>
-        <textarea name="textRuta" rows="10" cols="50" placeholder="Allergier, djur, övriga önskemål..."></textarea>
-      </div>
-      <div class="submit">
-        <button type="submit">Skicka</button>
-      </div>
+        <div class="">
+          Övriga kommentarer<br>
+          <textarea name="textRuta" rows="10" cols="50" placeholder="Allergier, djur, övriga önskemål..."></textarea>
+        </div>
+        <div class="submit">
+          <button type="submit">Skicka</button>
+        </div>
+        <div class="">
+          <input type="reset" label="reset">
+        </div>
 
-    </form>
+        <div class="">
+          <label for="pris">Önskad betalning</label>
+          <input type="text" id="pris" name="pris-name" required>
+        </div>
+       </form>
   </head>
   <body>
     <script src="src/bilist.js"></script>
