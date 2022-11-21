@@ -13,7 +13,7 @@
 
   <body>
     <p>Här fyller du i uppgifter om dig själv som behövs för att kunna boka samåkning</p>
-    <form onsubmit="return validering()">
+    <form id="form">
       <div>
         
         <div>
@@ -45,7 +45,7 @@
 
         <div>
           <!--JS för validering genomfort med hjälp av funktion validering()-->
-          <input type="submit" value="Spara Uppgifter" >
+          <input type="button" onclick="validering()" value="Spara Uppgifter" >
           <input type="reset">
         </div>
       </div>

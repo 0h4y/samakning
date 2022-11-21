@@ -23,6 +23,8 @@ window.onload =function(){
 }
 // Kollar validering på form, när man trycker på submit
 function validering(){
+    // Skapar variabgel indikator för ifall valideringen har gått igenom
+    let valid=0;
 
     // Skaffar alla element med klassen namn
     const namn=document.querySelectorAll(".namn");
@@ -47,6 +49,8 @@ function validering(){
                 thisLetterChar > 246)){
                     // Tillfällig alert
                     alert("Otillåtna tecken i "+element.id);
+                    // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
+                    valid++;
                     // Alertar inte flera gånger
                     break;
             }
@@ -68,10 +72,17 @@ function validering(){
         if (thisNumberChar < 48 || thisNumberChar > 57) {
             // Tillfällig alert
             alert("Otillåtna tecken i Mobilnummer");
+            // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
+            valid++;
             // Alertar inte flera gånger
             break;
         }
     }
-    document.getElementById("bilreseval").style.visibility="visible";
+    // Kollar ifall det har kommit något problem i formuläret
+    if(valid==0){
+        document.getElementById("form").style.display="none";
+        document.getElementById("bilreseval").style.visibility="visible";
+    }
+    
 
 }
