@@ -78,6 +78,19 @@ function validering(){
             break;
         }
     }
+
+    // Skaffar element från epost-id
+    const email=document.querySelector("#epost");
+    // Hämtar värdet från elementet
+    let adress=email.value;
+    // Om värdet inte innehåller @
+    if (!adress.includes("@")) {
+         // Tillfällig alert
+         alert("En Epostadress måste innehålla @.");
+         // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
+         valid++;      
+    }
+
     // Kollar ifall det har kommit något problem i formuläret
     if(valid==0){
         document.getElementById("form").style.display="none";
