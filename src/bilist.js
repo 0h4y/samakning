@@ -10,6 +10,27 @@ let year = currentDateTime.getFullYear();
 let month = (currentDateTime.getMonth() + 1);
 //variabel som innehåller dagens dag, getDate är 0 index based
 let date = (currentDateTime.getDate());
+//variabel som innehåller nuvarande timme
+let hour = (currentDateTime.getHours());
+//variabel som innehåller nuvarande minut
+let minutes = (currentDateTime.getMinutes());
+
+//Skriver ut siffran 0 så tiden alltid innehåller 2 siffror
+if(hour < 10) {
+    hour = '0' + hour;
+}
+
+if(minutes < 10) {
+    minutes = '0' + minutes;
+}
+
+let timeTomorrow = hour + ':' + minutes;
+//Tar alltid ut första elementet
+let avgångTidElem = document.querySelector("#tid-avgång");
+let hemgångTidElem = document.querySelector("#tid-hemgång");
+
+//sätter ett minimum på dagens datum
+avgångTidElem.setAttribute("min", timeTomorrow);
 
 //Skriver ut siffran 0 så datum alltid innehåller 2 siffror
 if(date < 10) {
