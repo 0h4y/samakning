@@ -1,0 +1,37 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.formContainer{
+    width: 20vw;
+    min-height: 30vh;
+    margin:  10rem auto;
+    border: 1px solid #cccccc;
+    padding: 1rem;
+}
+
+.resForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.resForm label{
+    margin-top: 1rem;
+}
+
+.resForm button{
+    margin-top: 1rem;
+}
+
+#antalResenarer{
+    
+    display: flex;
+    flex-direction: column;
+}
+
+#enkelPendling{
+    
+    display: flex;
+    flex-direction: column;
+}
