@@ -21,7 +21,7 @@ window.onload =function(){
     //Gör om Maxåldern av användarna till 120år
     fodelsedatum.setAttribute("min", mindateStr );
 }
-// Kollar validering på form, nä'r man trycker på submit
+// Kollar validering på form, när man trycker på submit
 function validering(){
 
     //Skaffar alla element med klassen namn
@@ -32,11 +32,11 @@ function validering(){
         let text=element.value;
         //Går igenom varje symbol
         for (let i = 0; i < text.length; i++) {
-            //Väljer idex i strängen
+            //Väljer index i strängen
             let thisLetter=text[i];
             //Går igenom charcode på symbolen
             let thisLetterChar=thisLetter.charCodeAt(0);
-            //Ser till att endast svenska alfabetet, bindesträck, och space 'är giltigt
+            //Ser till att endast svenska alfabetet, bindesträck, och space är giltigt
             if (thisLetterChar > 32   && (thisLetterChar < 45  || 
                 thisLetterChar > 45 ) && (thisLetterChar < 65  || 
                 thisLetterChar > 90 ) && (thisLetterChar < 97  ||
@@ -45,7 +45,7 @@ function validering(){
                 thisLetterChar > 230) && (thisLetterChar < 214 ||
                 thisLetterChar > 214) && (thisLetterChar < 246 || 
                 thisLetterChar > 246)){
-                    //Tillf'ällig alert
+                    //Tillfällig alert
                     alert("Otillåtna tecken i "+element.id);
                     //Alertar inte flera gånger
                     break;
@@ -53,5 +53,24 @@ function validering(){
             
         }
     });
+
+    // Skaffar element från mobil-id
+    const mobil=document.querySelector("#mobil");
+    // Hämtar värdet från elementet, sparar till numbers
+    let numbers=mobil.value;
+    // Går genom varje symbol i mobil
+    for (let i = 0; i < numbers.length; i++) {
+        // Väljer index
+        const thisNumber = numbers[i];
+        //Går genom charcode (symbol)
+        let thisNumberChar=thisNumber.charCodeAt(0); 
+        // Tillåter endast siffror       
+        if (thisNumberChar < 48 || thisNumberChar > 57) {
+            //Tillfällig alert
+            alert("Otillåtna tecken i Mobilnummer");
+            //Alertar inte flera gånger
+            break;
+        }
+    }
 
 }
