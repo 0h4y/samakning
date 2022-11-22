@@ -24,12 +24,7 @@ Grupp gud, robin -->
         </select>
 
         <label for="nar">När önskar du resa:</label>
-        <input type="datetime-local" name="" id="nar" required />
-
-        <label for="friText">
-          Övrigt: (tex. rökfritt, pälsallergiker etc.)
-        </label>
-        <textarea name="" id="friText" cols="30" rows="10"></textarea>
+        <input type="datetime-local" name="" id="nar" />
 
         <label for="fran">Från:</label>
         <input type="text" id="fran" required />
@@ -39,6 +34,12 @@ Grupp gud, robin -->
 
         <label for="pris">Ersättning du är villig att betala:</label>
         <input type="text" id="pris" required />
+
+        <label for="friText">
+          Övrigt: (tex. rökfritt, pälsallergiker etc.)
+        </label>
+        <textarea name="" id="friText" cols="30" rows="10"></textarea>
+
         <button id="saveButton" onClick="{saveResForm(event);}">
           Registrera uppgifter
         </button>

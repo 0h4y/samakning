@@ -1,5 +1,8 @@
 /*Javascript för samåkning nedan... Grupp Axel, Martin L*/
 
+
+var AnvandarData=[];
+
 // Kör när html laddar
 window.onload =function(){
 
@@ -95,6 +98,13 @@ function validering(){
     if(valid==0){
         document.getElementById("form").style.display="none";
         document.getElementById("bilreseval").style.visibility="visible";
+
+        //Skickar data till AnvandarData
+        AnvandarData.push(document.getElementById("Förnamn").value);
+        AnvandarData.push(document.getElementById("Efternamn").value);
+        AnvandarData.push(document.getElementById("fodelsedatum").value);
+        AnvandarData.push(document.getElementById("mobil").value);
+        AnvandarData.push(document.getElementById("epost").value);
     }
     
 }

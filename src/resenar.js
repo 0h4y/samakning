@@ -2,7 +2,9 @@
 Grupp gud, robin
 */
 
-const onload = (window.onload = () => {
+/* console.log(new Date().toISOString().slice("0", "16")); //Ofset for current timezone */
+
+const onload = (window.onload = (event) => {
   //TODO: Skapa en loop för att ladda alla fälten från localstorage, använd arrayen nedan
   let faltAttKolla = [
     "antalResenarer",
@@ -41,6 +43,13 @@ const onload = (window.onload = () => {
     eTill.value = till;
     ePris.value = pris;
   }
+
+  if (document.getElementById("nar") === "") {
+    let currentDate = new Date().toISOString().slice("0", "16");
+    document.getElementById("nar").value = currentDate;
+  }
+
+  console.log(new Date().toISOString().slice("0", "16"));
 });
 
 const saveResForm = (event) => {
@@ -59,6 +68,8 @@ const saveResForm = (event) => {
     pris: document.getElementById("pris").value,
   };
 
+  //if (valideraIndata(resFormData));
+
   //TODO: Validera alla fält innan koden nedan körs
 
   //Alla fälten sparas med respektive nyckel i localstorage
@@ -69,23 +80,24 @@ const saveResForm = (event) => {
   localStorage.setItem("fran", resFormData.fran);
   localStorage.setItem("till", resFormData.till);
   localStorage.setItem("pris", resFormData.pris);
-  
+
   // localStorage.setItem("allaResor", JSON.stringify(allaResor));
 
   // const resa = {antalResenarer: resFormData.antalResenarer, };
-  
-  let old = new Array();
 
-if(localStorage.getItem("allaResor")){
-  let old = JSON.parse(localStorage.getItem("allaResor"));
-}
+  let allaResorArray = new Array();
 
+  if (localStorage.getItem("allaResor")) {
+    allaResorArray = JSON.parse(localStorage.getItem("allaResor"));
+  }
 
-console.log(old);
+  //console.log(allaResorArray);
 
-old.push(resFormData);
-console.log(old);
-localStorage.setItem("allaResor", JSON.stringify(old));
-console.log(JSON.parse(localStorage.getItem("allaResor")));
+  allaResorArray.push(resFormData);
 
+  //console.log(allaResorArray);
+
+  localStorage.setItem("allaResor", JSON.stringify(allaResorArray));
+
+  console.log(JSON.parse(localStorage.getItem("allaResor")));
 };
