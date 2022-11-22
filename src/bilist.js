@@ -51,11 +51,9 @@ avgångElem.setAttribute("min", dateTomorrow);
 
 //Metod för avgångsdadum
 avgångElem.onchange = function () {
-    //Begränsar hemgång till datumet man väljer i avgång. this.Value är värdet från #avgångs-datum
+//Begränsar hemgång till datumet man väljer i avgång. this.Value är värdet från #avgångs-datum
     hemgångElem.setAttribute("min", this.value);
 }
-
-
 
 function buttonClick() {
     //Arrayer för tid och datum
@@ -79,20 +77,47 @@ function buttonClick() {
     //Jämför datum 0 elementen är år, 1 månad, 2 dag
     if(date1[0] == date2[0] && date1[1] == date2[1] && date1[2] == date2[2]) {
         //funkar ej.
-        if(time1[0] > time2[0] || (time1[0] == time2[0] && time1[1] < time2[1])) {
+        if(time1[0] > time2[0] || (time1[0] == time2[0] && time1[1] > time2[1])) {
 
-            window.alert("Samma datum");
-
+            window.alert("Du kan ej åka hem innan du har anlänt.");
         }
     }
-
-  // window.alert("Samma datum");
-
+    //Local storage
+const saveResForm = (event) => {
+    // preventDefault() hindrar sidan att laddas om
+    event.preventDefault();
+  
+    //Lagra datan från formuläret i objektet {resFormData}
+    //ex: resFormData.antalResenarer innehåller sedan antaler resenärer
+    const resFormData = {
+      turResa: document.getElementById("turResa").value,
+      avgångDatum: document.getElementById("avgångDatum").value,
+      nar: document.getElementById("nar").value,
+      friText: document.getElementById("friText").value,
+      fran: document.getElementById("fran").value,
+      till: document.getElementById("till").value,
+      pris: document.getElementById("pris").value,
+    };
+  
+    //TODO: Validera alla fält innan koden nedan körs
+  
+    //Alla fälten sparas med respektive nyckel i localstorage
+    localStorage.setItem("turResa", resFormData.turResa);
+    localStorage.setItem("enkelPendling", resFormData.enkelPendling);
+    localStorage.setItem("nar", resFormData.nar);
+    localStorage.setItem("friText", resFormData.friText);
+    localStorage.setItem("fran", resFormData.fran);
+    localStorage.setItem("till", resFormData.till);
+    localStorage.setItem("pris", resFormData.pris);
     
-
-    /*if(avgångElem == hemgångElem) {
-        if(avgångTidElem > hemgångTidElem) {
-            window.alert("ajabaja");
-        }
-    }*/
+    // localStorage.setItem("allaResor", JSON.stringify(allaResor));
+  
+    // const resa = {antalResenarer: resFormData.antalResenarer, };
+    
+    let old = new Array();
+  
+    if(localStorage.getItem("allaResor")){
+        let old = JSON.parse(localStorage.getItem("allaResor"));
+    }
+    }
 }

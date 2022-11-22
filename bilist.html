@@ -50,7 +50,7 @@ Fritext kommentar
       
       <div class="tid">
         <label for="tid-avgång">Tid:</label>
-        <input type="time" id="tid-avgång" name="tid-namn" required>
+        <input type="time" id="tid-avgång" name="tid-namn" step="1800" required>
       </div>
 
       <div class="datumRetur">
@@ -76,7 +76,8 @@ Fritext kommentar
           <textarea name="textRuta" rows="10" cols="50" placeholder="Allergier, djur, övriga önskemål..."></textarea>
         </div>
         <div class="submit">
-          <button onclick="buttonClick()">Skicka</button>
+
+          <button onclick="buttonClick()" onclick="{saveResForm(event);}">Skicka</button>
 
         </div>
         <div class="">
