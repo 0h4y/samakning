@@ -2,6 +2,8 @@
 Grupp gud, robin
 */
 
+/* console.log(new Date().toISOString().slice("0", "16")); //Ofset for current timezone */
+
 const onload = (window.onload = () => {
   //TODO: Skapa en loop för att ladda alla fälten från localstorage, använd arrayen nedan
   let faltAttKolla = [
@@ -41,6 +43,11 @@ const onload = (window.onload = () => {
     eTill.value = till;
     ePris.value = pris;
   }
+
+  if (!document.getElementById("nar")) {
+    let currentDate = new Date().toISOString();
+    document.getElementById("nar").value = currentDate;
+  }
 });
 
 const saveResForm = (event) => {
@@ -59,6 +66,8 @@ const saveResForm = (event) => {
     pris: document.getElementById("pris").value,
   };
 
+  if (valideraIndata(resFormData));
+
   //TODO: Validera alla fält innan koden nedan körs
 
   //Alla fälten sparas med respektive nyckel i localstorage
@@ -69,23 +78,21 @@ const saveResForm = (event) => {
   localStorage.setItem("fran", resFormData.fran);
   localStorage.setItem("till", resFormData.till);
   localStorage.setItem("pris", resFormData.pris);
-  
+
   // localStorage.setItem("allaResor", JSON.stringify(allaResor));
 
   // const resa = {antalResenarer: resFormData.antalResenarer, };
-  
+
   let old = new Array();
 
-if(localStorage.getItem("allaResor")){
-  let old = JSON.parse(localStorage.getItem("allaResor"));
-}
+  if (localStorage.getItem("allaResor")) {
+    old = JSON.parse(localStorage.getItem("allaResor"));
+  }
 
+  console.log(old);
 
-console.log(old);
-
-old.push(resFormData);
-console.log(old);
-localStorage.setItem("allaResor", JSON.stringify(old));
-console.log(JSON.parse(localStorage.getItem("allaResor")));
-
+  old.push(resFormData);
+  console.log(old);
+  localStorage.setItem("allaResor", JSON.stringify(old));
+  console.log(JSON.parse(localStorage.getItem("allaResor")));
 };
