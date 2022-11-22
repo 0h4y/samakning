@@ -15,7 +15,7 @@ let hour = currentDateTime.getHours();
 //variabel som innehåller nuvarande minut
 let minutes = currentDateTime.getMinutes();
 
-//Skriver ut siffran 0 så tiden alltid innehåller 2 siffror
+//Skriver ut siffrasn 0 så tiden alltid innehåller 2 siffror
 if(hour < 10) {
     hour = '0' + hour;
 }
@@ -32,7 +32,7 @@ let hemgångTidElem = document.querySelector("#tid-hemgång");
 //sätter ett minimum på dagens datum
 avgångTidElem.setAttribute("min", timeTomorrow);
 
-//Skriver ut siffran 0 så datum alltid innehåller 2 siffror
+//Skriver ut siffrasn 0 så datum alltid innehåller 2 siffror
 if(date < 10) {
   date = '0' + date;
 }
@@ -51,7 +51,7 @@ avgångElem.setAttribute("min", dateTomorrow);
 
 //Metod för avgångsdadum
 avgångElem.onchange = function () {
-//Begränsar hemgång till datumet man väljer i avgång. this.Value är värdet från #avgångs-datum
+//Begränsar hemgång tilsl datumet man väljer i avgång. this.Value är värdet från #avgångs-datum
     hemgångElem.setAttribute("min", this.value);
 }
 
@@ -92,23 +92,27 @@ const saveResForm = (event) => {
     const resFormData = {
       turResa: document.getElementById("turResa").value,
       avgångDatum: document.getElementById("avgångDatum").value,
-      nar: document.getElementById("nar").value,
-      friText: document.getElementById("friText").value,
-      fran: document.getElementById("fran").value,
-      till: document.getElementById("till").value,
+      avgangTid: document.getElementById("avgangTid").value,
+      hemgangDatum: document.getElementById("hemgangDatum").value,
+      hemgångTid: document.getElementById("hemgångTid").value,
+      startResa: document.getElementById("startResa").value,
+      slutResa: document.getElementById("slutResa").value,
       pris: document.getElementById("pris").value,
+      textRuta: document.getElementById("textRuta").value,
     };
   
     //TODO: Validera alla fält innan koden nedan körs
   
     //Alla fälten sparas med respektive nyckel i localstorage
     localStorage.setItem("turResa", resFormData.turResa);
-    localStorage.setItem("enkelPendling", resFormData.enkelPendling);
-    localStorage.setItem("nar", resFormData.nar);
-    localStorage.setItem("friText", resFormData.friText);
-    localStorage.setItem("fran", resFormData.fran);
-    localStorage.setItem("till", resFormData.till);
+    localStorage.setItem("avgångDatum", resFormData.avgångDatum);
+    localStorage.setItem("avgangTid", resFormData.avgangTid);
+    localStorage.setItem("hemgangDatum", resFormData.hemgangDatum);
+    localStorage.setItem("hemgångTid", resFormData.hemgångTid);
+    localStorage.setItem("startResa", resFormData.startResa);
+    localStorage.setItem("slutResa", resFormData.slutResa);
     localStorage.setItem("pris", resFormData.pris);
+    localStorage.setItem("textRuta", resFormData.textRuta);
     
     // localStorage.setItem("allaResor", JSON.stringify(allaResor));
   
