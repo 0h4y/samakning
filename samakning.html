@@ -35,26 +35,27 @@
 
         <div>
           <label for="mobil">Mobilnummer</label>
+          <!--JS validerar att bara siffror används-->
           <input type="tel" id="mobil" name="mobil" placeholder="0707123456" minlength="10" maxlength="10" required>
         </div>
 
         <div>
           <label for="epost">E-postadress</label>
+          <!--JS så att adressen innehåller ett @-->
           <input type="email" id="epost" name="epost" placeholder="john.doe@gmail.com" required>
         </div>
 
         <div>
           <!--JS för validering genomfort med hjälp av funktion validering()-->
+          <!--Lägg till JS för att spara info om användare i en array-->
           <input type="button" onclick="validering()" value="Spara Uppgifter" >
           <input type="reset">
         </div>
       </div>
     </form>
-    <p class="felmed"></p>
 
     <div id="bilreseval">
-      <!--Lägg till JS, för att dölja dessa knappar innan man har sparat sina uppgifter-->
-      <!--Lägg till JS, för att skicka vidare användaren till rätt nästa sida(medför uppgifterna)-->
+      <!--JS för att dölja dessa knappar innan man har sparat sina uppgifter-->
       <p>Här väljer du ifall du har bil och är förare eller om du är resenär</p>
       <button><a  href="/bilist.html">Bilist</a></button>
       <button><a  href="/resenar.html">Resenär</a></button>
