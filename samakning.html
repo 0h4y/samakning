@@ -8,51 +8,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HERO - Grundläggande info om dig</title>    
     <link rel="stylesheet" href="/src/samakning.css" />
+    <link rel="stylesheet" href="/src/resenar.css"/>
 
   </head>
 
   <body>
-    <p>Här fyller du i uppgifter om dig själv som behövs för att kunna boka samåkning</p>
-    <form id="form">
-      <div>
-        
-        <div>
-          <label for="fornamn">Förnamn</label>
-          <input type="text" id="Förnamn" class="namn" name="fornamn" placeholder="John" required>
-        </div>
+    <div class="formContainer">
+      <form id="form" class="resForm">
+        <div id="testdiv">
+          <div>
+            <h3>Registrera dina uppgifter nedan:</h3>
+          </div>
+          
+          <div>
+            <label for="fornamn">Förnamn</label>
+            <input type="text" id="Förnamn" class="namn" name="fornamn" placeholder="John" required>
+          </div>
 
-        <div>
-          <label for="efternamn">Efternamn</label>
-          <input type="text" id="Efternamn" class="namn" name="efternamn" placeholder="Doe" required>
-        </div>
-        
-        <div>
-          <label for="fodelsedatum">Födelsedatum</label>
-          <!--JS så max blir dagens datum -18år, = man måste va 18+ för att boka.-->
-          <!--JS så man inte kan va äldre än 120år-->
-          <input type="date" id="fodelsedatum" name="fodelsedatum" max="2020-12-31" min="1900-01-01" required>
-        </div>
+          <div>
+            <label for="efternamn">Efternamn</label>
+            <input type="text" id="Efternamn" class="namn" name="efternamn" placeholder="Doe" required>
+          </div>
+          
+          <div>
+            <label for="fodelsedatum">Födelsedatum</label>
+            <!--JS så max blir dagens datum -18år, = man måste va 18+ för att boka.-->
+            <!--JS så man inte kan va äldre än 120år-->
+            <input type="date" id="fodelsedatum" name="fodelsedatum" max="2020-12-31" min="1900-01-01" required>
+          </div>
 
-        <div>
-          <label for="mobil">Mobilnummer</label>
-          <!--JS validerar att bara siffror används-->
-          <input type="tel" id="mobil" name="mobil" placeholder="0707123456" minlength="10" maxlength="10" required>
-        </div>
+          <div>
+            <label for="mobil">Mobilnummer</label>
+            <!--JS validerar att bara siffror används-->
+            <input type="tel" id="mobil" name="mobil" placeholder="0707123456" minlength="10" maxlength="10" required>
+          </div>
 
-        <div>
-          <label for="epost">E-postadress</label>
-          <!--JS så att adressen innehåller ett @-->
-          <input type="email" id="epost" name="epost" placeholder="john.doe@gmail.com" required>
-        </div>
+          <div>
+            <label for="epost">E-postadress</label>
+            <!--JS så att adressen innehåller ett @-->
+            <input type="email" id="epost" name="epost" placeholder="john.doe@gmail.com" required>
+          </div>
 
-        <div>
-          <!--JS för validering genomfort med hjälp av funktion validering()-->
-          <!--Lägg till JS för att spara info om användare i en array-->
-          <input type="button" onclick="validering()" value="Spara Uppgifter" >
-          <input type="reset">
+          <div>
+            <!--JS för validering genomfort med hjälp av funktion validering()-->
+            <!--Lägg till JS för att spara info om användare i en array-->
+            <input type="button" onclick="validering()" value="Spara Uppgifter" >
+            <input type="reset">
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
 
     <div id="bilreseval">
       <!--JS för att dölja dessa knappar innan man har sparat sina uppgifter-->
