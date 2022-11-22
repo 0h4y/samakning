@@ -7,11 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HERO - Grundläggande info om dig</title>    
+    <link rel="stylesheet" href="/src/samakning.css" />
+
   </head>
 
   <body>
     <p>Här fyller du i uppgifter om dig själv som behövs för att kunna boka samåkning</p>
-    <form onsubmit="return validering()">
+    <form id="form">
       <div>
         
         <div>
@@ -27,23 +29,23 @@
         <div>
           <label for="fodelsedatum">Födelsedatum</label>
           <!--JS så max blir dagens datum -18år, = man måste va 18+ för att boka.-->
-          <!--Lägg till JS så att man som mest kan vara 120år för att boka-->
+          <!--JS så man inte kan va äldre än 120år-->
           <input type="date" id="fodelsedatum" name="fodelsedatum" max="2020-12-31" min="1900-01-01" required>
         </div>
 
         <div>
           <label for="mobil">Mobilnummer</label>
-          <input type="tel" id="mobil" name="mobil" placeholder="0707123456" maxlength="10" required>
+          <input type="tel" id="mobil" name="mobil" placeholder="0707123456" minlength="10" maxlength="10" required>
         </div>
 
         <div>
-          <label for="epost">E-postadress:</label>
+          <label for="epost">E-postadress</label>
           <input type="email" id="epost" name="epost" placeholder="john.doe@gmail.com" required>
         </div>
 
         <div>
-          <!--Lägg till JS, för validering på submit, så ej otillåtna tecken används-->
-          <input type="submit" value="Spara Uppgifter" >
+          <!--JS för validering genomfort med hjälp av funktion validering()-->
+          <input type="button" onclick="validering()" value="Spara Uppgifter" >
           <input type="reset">
         </div>
       </div>
@@ -54,8 +56,8 @@
       <!--Lägg till JS, för att dölja dessa knappar innan man har sparat sina uppgifter-->
       <!--Lägg till JS, för att skicka vidare användaren till rätt nästa sida(medför uppgifterna)-->
       <p>Här väljer du ifall du har bil och är förare eller om du är resenär</p>
-      <button>Bilist</button>
-      <button>Resenär</button>
+      <button><a  href="/bilist.html">Bilist</a></button>
+      <button><a  href="/resenar.html">Resenär</a></button>
     </div>
 
 
