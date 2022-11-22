@@ -56,7 +56,6 @@ avgångElem.onchange = function () {
 }
 
 function buttonClick() {
-    window.alert("buttonClick");
     //Arrayer för tid och datum
     let date1 = [];
     let date2 = [];
@@ -87,7 +86,6 @@ function buttonClick() {
 
     //Local storage
     const saveResForm = (event) => {
-        window.alert("saveResform");
         // preventDefault() hindrar sidan att laddas om
         event.preventDefault();
       
