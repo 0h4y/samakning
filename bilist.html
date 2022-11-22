@@ -15,10 +15,7 @@ Fritext kommentar
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HERO - Bilist - Registrera dig och ditt fordon här</title>
 
-    <script>
-      src="bilist.js" 
-      defer
-    </script>
+    <script>src="bilist.js"</script>
    
       <!--Hämtar data från index -->
       <form class="forms" action="" method="GET">
@@ -80,9 +77,9 @@ Fritext kommentar
           Övriga kommentarer<br>
           <textarea name="textRuta" id="textRuta" rows="10" cols="50" placeholder="Allergier, djur, övriga önskemål..."></textarea>
         </div>
-        <div class="submit">
+        <div class="submitDiv">
 
-          <button onclick="buttonClick()" onclick="{saveResForm(event);}">Skicka</button>
+          <button id="submit" onclick="buttonClick(); saveResForm(event);">Skicka</button>
 
         </div>
         <div class="">

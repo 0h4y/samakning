@@ -26,8 +26,8 @@ if(minutes < 10) {
 
 let timeTomorrow = hour + ':' + minutes;
 //Tar alltid ut första elementet
-let avgångTidElem = document.querySelector("#tid-avgång");
-let hemgångTidElem = document.querySelector("#tid-hemgång");
+let avgångTidElem = document.querySelector("#avgangTid");
+let hemgångTidElem = document.querySelector("#hemgangTid");
 
 //sätter ett minimum på dagens datum
 avgångTidElem.setAttribute("min", timeTomorrow);
@@ -43,8 +43,8 @@ if(month < 10) {
 //dateTomorrow == dagens datum
 let dateTomorrow = year + "-" + month + "-" + date;
 //Tar alltid ut första elementet
-let avgångElem = document.querySelector("#avgång-datum");
-let hemgångElem = document.querySelector("#hemgång-datum");
+let avgångElem = document.querySelector("#avgangDatum");
+let hemgångElem = document.querySelector("#hemgangDatum");
 
 //sätter ett minimum på dagens datum
 avgångElem.setAttribute("min", dateTomorrow);
@@ -56,6 +56,7 @@ avgångElem.onchange = function () {
 }
 
 function buttonClick() {
+    window.alert("buttonClick");
     //Arrayer för tid och datum
     let date1 = [];
     let date2 = [];
@@ -63,10 +64,10 @@ function buttonClick() {
     let time2 = [];
 
     //plockar ut värdena från input
-    date1 = document.getElementById("avgång-datum").value;
-    date2 = document.getElementById("hemgång-datum").value;
-    time1 = document.getElementById("tid-avgång").value;
-    time2 = document.getElementById("tid-hemgång").value;
+    date1 = document.getElementById("avgangDatum").value;
+    date2 = document.getElementById("hemgangDatum").value;
+    time1 = document.getElementById("avgangTid").value;
+    time2 = document.getElementById("hemgangTid").value;
 
     //Splittar arraysen
     date1 = date1.split("-");
@@ -82,46 +83,58 @@ function buttonClick() {
             window.alert("Du kan ej åka hem innan du har anlänt.");
         }
     }
-    //Local storage
-const saveResForm = (event) => {
-    // preventDefault() hindrar sidan att laddas om
-    event.preventDefault();
-  
-    //Lagra datan från formuläret i objektet {resFormData}
-    //ex: resFormData.antalResenarer innehåller sedan antaler resenärer
-    const resFormData = {
-      turResa: document.getElementById("turResa").value,
-      avgångDatum: document.getElementById("avgångDatum").value,
-      avgangTid: document.getElementById("avgangTid").value,
-      hemgangDatum: document.getElementById("hemgangDatum").value,
-      hemgångTid: document.getElementById("hemgångTid").value,
-      startResa: document.getElementById("startResa").value,
-      slutResa: document.getElementById("slutResa").value,
-      pris: document.getElementById("pris").value,
-      textRuta: document.getElementById("textRuta").value,
-    };
-  
-    //TODO: Validera alla fält innan koden nedan körs
-  
-    //Alla fälten sparas med respektive nyckel i localstorage
-    localStorage.setItem("turResa", resFormData.turResa);
-    localStorage.setItem("avgångDatum", resFormData.avgångDatum);
-    localStorage.setItem("avgangTid", resFormData.avgangTid);
-    localStorage.setItem("hemgangDatum", resFormData.hemgangDatum);
-    localStorage.setItem("hemgångTid", resFormData.hemgångTid);
-    localStorage.setItem("startResa", resFormData.startResa);
-    localStorage.setItem("slutResa", resFormData.slutResa);
-    localStorage.setItem("pris", resFormData.pris);
-    localStorage.setItem("textRuta", resFormData.textRuta);
-    
-    // localStorage.setItem("allaResor", JSON.stringify(allaResor));
-  
-    // const resa = {antalResenarer: resFormData.antalResenarer, };
-    
-    let old = new Array();
-  
-    if(localStorage.getItem("allaResor")){
-        let old = JSON.parse(localStorage.getItem("allaResor"));
-    }
-    }
 }
+
+    //Local storage
+    const saveResForm = (event) => {
+        window.alert("saveResform");
+        // preventDefault() hindrar sidan att laddas om
+        event.preventDefault();
+      
+        //Lagra datan från formuläret i objektet {resFormData}
+        //ex: resFormData.antalResenarer innehåller sedan antaler resenärer
+        const resFormData = {
+          turResa: document.getElementById("turResa").value,
+          avgångDatum: document.getElementById("avgangDatum").value,
+          avgangTid: document.getElementById("avgangTid").value,
+          hemgangDatum: document.getElementById("hemgangDatum").value,
+          hemgångTid: document.getElementById("hemgangTid").value,
+          startResa: document.getElementById("startResa").value,
+          slutResa: document.getElementById("slutResa").value,
+          pris: document.getElementById("pris").value,
+          textRuta: document.getElementById("textRuta").value,
+        };
+      
+        //TODO: Validera alla fält innan koden nedan körs
+      
+        //Alla fälten sparas med respektive nyckel i localstorage
+        localStorage.setItem("turResa", resFormData.turResa);
+        localStorage.setItem("avgangDatum", resFormData.avgångDatum);
+        localStorage.setItem("avgangTid", resFormData.avgangTid);
+        localStorage.setItem("hemgangDatum", resFormData.hemgangDatum);
+        localStorage.setItem("hemgangTid", resFormData.hemgångTid);
+        localStorage.setItem("startResa", resFormData.startResa);
+        localStorage.setItem("slutResa", resFormData.slutResa);
+        localStorage.setItem("pris", resFormData.pris);
+        localStorage.setItem("textRuta", resFormData.textRuta);
+        
+        // localStorage.setItem("allaResor", JSON.stringify(allaResor));
+      
+        // const resa = {antalResenarer: resFormData.antalResenarer, };
+        
+        let allaResorArray = new Array();
+    
+      if (localStorage.getItem("allaResor")) {
+        allaResorArray = JSON.parse(localStorage.getItem("allaResor"));
+      }
+    
+      //console.log(allaResorArray);
+    
+      allaResorArray.push(resFormData);
+    
+      //console.log(allaResorArray);
+    
+      localStorage.setItem("allaResor", JSON.stringify(allaResorArray));
+    
+      console.log(JSON.parse(localStorage.getItem("allaResor")));
+    }
