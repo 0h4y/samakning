@@ -52,20 +52,67 @@ const onload = (window.onload = (event) => {
   console.log(new Date().toISOString().slice("0", "16"));
 });
 
+const antalResenarer = document.getElementById("antalResenarer");
+const enkelPendling = document.getElementById("enkelPendling");
+const nar = document.getElementById("nar");
+const friText = document.getElementById("friText");
+const fran = document.getElementById("fran");
+const till = document.getElementById("till");
+const pris = document.getElementById("pris");
+
+const form = document.querySelector("form");
+
+const emailError = document.querySelector("#mail + span.error");
+
+antalResenarer.addEventListener("input", (event) => {
+  if (antalResenarer.validity.typeMismatch) {
+    antalResenarer.setCustomValidity("Ett nummer förväntas här");
+  }
+});
+
+fran.addEventListener("input", (event) => {
+  if (antalResenarer.validity.typeMismatch) {
+    antalResenarer.setCustomValidity("mail!!");
+  }
+});
+
 const saveResForm = (event) => {
   // preventDefault() hindrar sidan att laddas om
-  event.preventDefault();
+
+  const antalResenarer = document.getElementById("antalResenarer");
+  const enkelPendling = document.getElementById("enkelPendling");
+  const nar = document.getElementById("nar");
+  const friText = document.getElementById("friText");
+  const fran = document.getElementById("fran");
+  const till = document.getElementById("till");
+  const pris = document.getElementById("pris");
+
+  const form = document.querySelector("form");
+
+  const emailError = document.querySelector("#mail + span.error");
+
+  antalResenarer.addEventListener("input", (event) => {
+    if (antalResenarer.validity.typeMismatch) {
+      antalResenarer.setCustomValidity("Ett nummer förväntas här");
+    }
+  });
+
+  fran.addEventListener("input", (event) => {
+    if (fran.validity.typeMismatch) {
+      fran.setCustomValidity("mail");
+    }
+  });
 
   //Lagra datan från formuläret i objektet {resFormData}
   //ex: resFormData.antalResenarer innehåller sedan antaler resenärer
   const resFormData = {
-    antalResenarer: document.getElementById("antalResenarer").value,
-    enkelPendling: document.getElementById("enkelPendling").value,
-    nar: document.getElementById("nar").value,
-    friText: document.getElementById("friText").value,
-    fran: document.getElementById("fran").value,
-    till: document.getElementById("till").value,
-    pris: document.getElementById("pris").value,
+    antalResenarer: antalResenarer.value,
+    enkelPendling: enkelPendling.value,
+    nar: nar.value,
+    friText: friText.value,
+    fran: fran.value,
+    till: till.value,
+    pris: pris.value,
   };
 
   //if (valideraIndata(resFormData));
