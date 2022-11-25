@@ -10,8 +10,9 @@ Grupp gud, robin -->
     <link rel="stylesheet" href="src/resenar.css" />
   </head>
   <body>
+    <div class="userData"></div>
     <div class="formContainer">
-      <form class="resForm">
+      <form class="resForm" onsubmit="return false">
         <h3>Registrera dina uppgifter nedan:</h3>
         <!--TODO: RUllgardin-->
         <label for="antalResenarer"
@@ -75,10 +76,7 @@ Grupp gud, robin -->
           ></textarea>
         </label>
 
-        <input type="submit" />
-        <button id="saveButton" onClick="{saveResForm(event);}">
-          Registrera uppgifter
-        </button>
+        <input type="submit" id="saveButton" onClick="{saveResForm(event);}" />
       </form>
     </div>
 

@@ -50,6 +50,13 @@ const onload = (window.onload = (event) => {
   }
 
   console.log(new Date().toISOString().slice("0", "16"));
+
+  const userdata = document.getElementById("userData");
+
+  let allaAnvandare = new Array();
+
+  allaAnvandare = JSON.parse(localStorage.getItem("allaAnvändare"));
+  userdata.innerHTML(allaAnvandare.pop());
 });
 
 const antalResenarer = document.getElementById("antalResenarer");
