@@ -1,62 +1,29 @@
 /*Javascript för resenär nedan...
 Grupp gud, robin
+
+test med datum
+  console.log(new Date().toISOString().slice("0", "16"));
 */
 
-/* console.log(new Date().toISOString().slice("0", "16")); //Ofset for current timezone */
-
 const onload = (window.onload = (event) => {
-  //TODO: Skapa en loop för att ladda alla fälten från localstorage, använd arrayen nedan
-  let faltAttKolla = [
-    "antalResenarer",
-    "antalResenarer",
-    "enkelPendling",
-    "nar",
-    "friText",
-    "fran",
-    "till",
-    "pris",
-  ];
-
-  //TODO: kolla separat för varje fält i localstorage (skapa en ny function)
-  if (localStorage.getItem("antalResenarer")) {
-    let antalResenarer = localStorage.getItem("antalResenarer");
-    let enkelPendling = localStorage.getItem("enkelPendling");
-    let nar = localStorage.getItem("nar");
-    let friText = localStorage.getItem("friText");
-    let fran = localStorage.getItem("fran");
-    let till = localStorage.getItem("till");
-    let pris = localStorage.getItem("pris");
-
-    let eAntalResenarer = document.getElementById("antalResenarer");
-    let eEnkelPendling = document.getElementById("enkelPendling");
-    let eNar = document.getElementById("nar");
-    let eFriText = document.getElementById("friText");
-    let eFran = document.getElementById("fran");
-    let eTill = document.getElementById("till");
-    let ePris = document.getElementById("pris");
-
-    eAntalResenarer.value = antalResenarer;
-    eEnkelPendling.value = enkelPendling;
-    eNar.value = nar;
-    eFriText.value = friText;
-    eFran.value = fran;
-    eTill.value = till;
-    ePris.value = pris;
-  }
-
   if (document.getElementById("nar") === "") {
     let currentDate = new Date().toISOString().slice("0", "16");
     document.getElementById("nar").value = currentDate;
   }
-
-  console.log(new Date().toISOString().slice("0", "16"));
 
   const userdata = document.getElementById("userData");
 
   let allaAnvandare = new Array();
 
   allaAnvandare = JSON.parse(localStorage.getItem("allaAnvändare"));
-  userdata.innerHTML(allaAnvandare.pop());
+
+  const senasteAnvandaren = allaAnvandare.pop();
+
+  const värden = Object.values(senasteAnvandaren);
+
+  värden.forEach((värde) => {
+    userdata.innerHTML += värde + "<br />";
+  });
 });
 
 const antalResenarer = document.getElementById("antalResenarer");
@@ -110,6 +77,11 @@ const saveResForm = (event) => {
     }
   });
 
+  let allaAnvandare = new Array();
+
+  allaAnvandare = JSON.parse(localStorage.getItem("allaAnvändare"));
+
+  const senasteAnvandaren = allaAnvandare.pop();
   //Lagra datan från formuläret i objektet {resFormData}
   //ex: resFormData.antalResenarer innehåller sedan antaler resenärer
   const resFormData = {
@@ -120,6 +92,7 @@ const saveResForm = (event) => {
     fran: fran.value,
     till: till.value,
     pris: pris.value,
+    anvandareIndex: allaAnvandare.length,
   };
 
   //if (valideraIndata(resFormData));
@@ -134,6 +107,7 @@ const saveResForm = (event) => {
   localStorage.setItem("fran", resFormData.fran);
   localStorage.setItem("till", resFormData.till);
   localStorage.setItem("pris", resFormData.pris);
+  localStorage.setItem("anvandareIndex", resFormData.anvandareIndex);
 
   // localStorage.setItem("allaResor", JSON.stringify(allaResor));
 
@@ -154,4 +128,5 @@ const saveResForm = (event) => {
   localStorage.setItem("allaResor", JSON.stringify(allaResorArray));
 
   console.log(JSON.parse(localStorage.getItem("allaResor")));
+  console.log(JSON.parse(localStorage.getItem("allaAnvändare")));
 };
