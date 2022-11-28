@@ -68,7 +68,7 @@ const onload = (window.onload = async () => {
     // Kollar om det finns några resor
     if (localStorage.getItem("allaResor")) {
         // Hämtar data från localstorage och skickar in det i arrayen
-        allaAnvandareArray = JSON.parse(localStorage.getItem("allaResor"));
+        allaResorArray = JSON.parse(localStorage.getItem("allaResor"));
     }
 
 
