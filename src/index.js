@@ -1,29 +1,21 @@
 /*Javascript för startsidan nedan... görs sist av allt*/
 
 const onload = (window.onload = async () => {
-  const allaResorTabell = document.getElementById("allaResorTabell");
-  allaResorTabell.style = "background-color: #cccccc;";
-  allaResorTabell.innerHTML = "dawd";
+  const allaResorDiv = document.getElementById("allaResorTabell");
+  allaResorDiv.style = "background-color: #cccccc;";
+  allaResorDiv.innerHTML = "Nedan presenteras alla registrerade resor:";
   generateTable();
 });
 
 /* En funktion för att generera en dynamisk tabell som innehåller data från localstorage */
 const generateTable = () => {
-  const htmlTable = document.createElement("table");
-  const tBydy = document.createElement("tbody");
+  const allaResorDiv = document.getElementById("allaResorTabell");
 
-  let allaAnvandare = new Array();
-  let allaResor = new Array();
+  /* HTML-elementen Table och Tbody skapas*/
+  const tbl = document.createElement("table");
+  const tblBody = document.createElement("tbody");
 
-  if (localStorage.getItem("allaResor")) {
-    allaResor = JSON.parse(localStorage.getItem("allaResor"));
-  }
-  if (localStorage.getItem("allaAnvändare")) {
-    allaAnvandare = JSON.parse(localStorage.getItem("allaAnvändare"));
-  }
-
-  const keys = Object.keys(allaAnvandare[0]);
-
+  /* Element för rubrikraden skapas nedan, än så länge är de bara element som inte finns i DOM:en*/
   const headRow = document.createElement("tr");
 
   const franTd = document.createElement("td");
@@ -44,6 +36,8 @@ const generateTable = () => {
   const prisHeaderText = document.createTextNode("Pris:");
   const anvandareHeaderText = document.createTextNode("Registrerad av:");
 
+  /* Elementen skapas i DOM:en inifrån och ut. (TEXT -> <td> -> <tr> -> <tbody> -> <table>) */
+
   franTd.appendChild(franHeaderText);
   tillTd.appendChild(tillHeaderText);
   antalResenarerTd.appendChild(antalResenarerHeaderText);
@@ -62,18 +56,47 @@ const generateTable = () => {
   headRow.appendChild(prisTd);
   headRow.appendChild(anvandareTd);
 
+  tblBody.appendChild(headRow);
+
+  tbl.appendChild(tblBody);
+
+  allaResorDiv.appendChild(tbl);
+
+  /* En array för att hålla data från localstorage skapas, användare respektive resor */
+  let allaAnvandare = new Array();
+  let allaResor = new Array();
+
+  /* Vi kontrollerar om det finns data i localstorage, datan parsas från json-format till javascript*/
+  if (localStorage.getItem("allaResor")) {
+    allaResor = JSON.parse(localStorage.getItem("allaResor"));
+  }
+  if (localStorage.getItem("allaAnvändare")) {
+    allaAnvandare = JSON.parse(localStorage.getItem("allaAnvändare"));
+  }
+
+  const keys = Object.keys(allaResor[0]);
+
+  /* Data från localstorage loopas ut på respektive rad  
+      se: 
+      https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces
+
+      Första loopen ger en ny rad (här loopar vi över allaResor som är en array)
+      Andra nivån ger respektive kolumn på raden (här loopar vi över respektive resa)
+  */
   for (let i = 0; i < allaResor.length; i++) {
     const row = document.createElement("tr");
 
     for (let j = 0; j < keys.length; j++) {
       const cell = document.createElement("td");
 
-      const cellText = document.createTextNode();
+      const cellText = document.createTextNode(allaResor[i].value);
 
-      /*
-      se: 
-      https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces
-      */
+      cell.appendChild(cellText);
+      row.appendChild(cell);
     }
+    tblBody.appendChild(row);
+    tbl.appendChild(tblBody);
   }
+
+  tbl.setAttribute("border", "2");
 };
