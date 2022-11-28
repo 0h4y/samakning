@@ -14,81 +14,85 @@ Fritext kommentar
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HERO - Bilist - Registrera dig och ditt fordon här</title>
+    <link rel="stylesheet" href="src/bilist.css" />
 
     <script>src="bilist.js"</script>
    
-      <!--Hämtar data från index -->
-      <form class="forms" action="" method="GET">
 
-      <div class="platser">
-        <label for="antPlats">Antal platser:</label>
-        <select id="antPlats" name="antPlats">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-        </select>
-      </div>
-
-      <div class="tur/retur">
-        <label for="turResa">Tur/Retur:</label>
-        <input type="checkbox" id="turResa" name="turResa-namn">
-
-      </div>
-
-      <div class="datumTur">
-        <label for="avgangDatum">Avgång</label>
-        <input type="date" id="avgangDatum" name="avgangNamn" required>
-      </div>
-      
-      <div class="tid">
-        <label for="avgangTid">Tid:</label>
-        <input type="time" id="avgangTid" name="tidNamn" step="1800" required>
-      </div>
-
-      <div class="datumRetur">
-        <label for="hemgangDatum">Hemgång</label>
-        <input type="date" id="hemgangDatum" name="hemgangNamn" required>
-      </div>
-
-      <div class="tid">
-        <label for="hemgangTid">Tid:</label>
-        <input type="time" id="hemgangTid" name="tidNamn" required>
-      </div>
-      
-
-      <div class="">
-        <label for="startResa">Startpunkt:</label>
-        <input type="text" id="startResa" name="startResaNamn" required>
-        <label for="slutResa">slutpunkt:</label>
-        <input type="text" id="slutResa" name="slutResaNamn" required>
-      </div>
-      
-      <div class="">
-        <label for="pris">Önskad betalning</label>
-        <input type="text" id="pris" name="prisNamn" required>
-      </div>
-
-        <div class="">
-          Övriga kommentarer<br>
-          <textarea name="textRuta" id="textRuta" rows="10" cols="50" placeholder="Allergier, djur, övriga önskemål..."></textarea>
-        </div>
-        <div class="submitDiv">
-
-          <button id="submit" onclick="buttonClick(); saveResForm(event);">Skicka</button>
-
-        </div>
-        <div class="">
-          <input type="reset" label="reset">
-        </div>
-        
-       </form>
   </head>
   <body>
+          <div class="formContainer">
+          <!--Hämtar data från index -->
+          <form class="resForm" action="" method="GET">
+
+            <div class="platser">
+              <label for="antPlats">Antal platser:</label>
+              <select id="antPlats" name="antPlats">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </select>
+            </div>
+      
+            <div class="tur/retur">
+              <label for="turResa">Tur/Retur:</label>
+              <input type="checkbox" id="turResa" name="turResa-namn">
+      
+            </div>
+      
+            <div class="datumTur">
+              <label for="avgangDatum">Avgång</label>
+              <input type="date" id="avgangDatum" name="avgangNamn" required>
+            </div>
+            
+            <div class="tid">
+              <label for="avgangTid">Tid:</label>
+              <input type="time" id="avgangTid" name="tidNamn" step="1800" required>
+            </div>
+      
+            <div class="datumRetur">
+              <label for="hemgangDatum">Hemgång</label>
+              <input type="date" id="hemgangDatum" name="hemgangNamn" required>
+            </div>
+      
+            <div class="tid">
+              <label for="hemgangTid">Tid:</label>
+              <input type="time" id="hemgangTid" name="tidNamn" required>
+            </div>
+            
+      
+            <div class="">
+              <label for="startResa">Startpunkt:</label>
+              <input type="text" id="startResa" name="startResaNamn" required>
+              <label for="slutResa">slutpunkt:</label>
+              <input type="text" id="slutResa" name="slutResaNamn" required>
+            </div>
+            
+            <div class="">
+              <label for="pris">Önskad betalning</label>
+              <input type="text" id="pris" name="prisNamn" required>
+            </div>
+      
+              <div class="">
+                Övriga kommentarer<br>
+                <textarea name="textRuta" id="textRuta" rows="10" cols="50" placeholder="Allergier, djur, övriga önskemål..."></textarea>
+              </div>
+              <div class="submitDiv">
+      
+                <button id="submit" onclick="buttonClick(); saveResForm(event);">Skicka</button>
+      
+              </div>
+              <div class="">
+                <input type="reset" label="reset">
+              </div>
+              
+             </form>
+          </div>
     <script src="src/bilist.js"></script>
   </body>
 </html>
