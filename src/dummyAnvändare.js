@@ -11,15 +11,14 @@ const onload = (window.onload = async () => {
     };
         
     const Res0 = {
-        turResa: "on",
-        avgangsDatum: "2054-05-02",
-        avgangTid: "19:00",
-        hemgangDatum: "2054-05-03",
-        hemgangTid: "10:00",
-        startResa: "Mjölby",
-        slutResa: "Malta",
+        antalResenarer: "4",
+        enkelPendling: "on",
+        nar: "2054-05-02T19:00",
+        fran: "Mjölby",
+        till: "Malta",
         pris: "20",
         textRuta:"Ej rökare",
+        anvandareIndex: 0,
     }
 
     // Dummyanvändare
@@ -31,14 +30,15 @@ const onload = (window.onload = async () => {
         epost: "kalle.karlsson@hotmail.com",
     
     };
-    const Res1 ={
-        turResa: "off",
-        avgangsDatum: "2023-01-15",
-        avgangTid: "08:00",
-        startResa: "Linköping",
-        slutResa: "Stockholm",
+    const Res1 = {
+        antalResenarer: "3",
+        enkelPendling: "off",
+        nar: "2023-01-15T08:00",
+        fran: "Linköping",
+        till: "Stockholm",
         pris: "20",
-        textRuta:"Inga djur med i bilen",
+        friText:"Inga djur med i bilen",
+        anvandareIndex: 1,
     }
 
     // Dummyanvändare
@@ -50,14 +50,15 @@ const onload = (window.onload = async () => {
         epost: "johanna.eriksson@gmail.com",
     
     };
-    const Res2= {
+    const Res2 = {
         antalResenarer: "2",
         enkelPendling: "Enkel",
-        nar: "2022-11-10T10:00",
-        friText: "Vi är två personer som söker bilresa som ska åka",
+        nar: "2022-11-10T10:00",        
         fran: "Ljungsbro",
         till: "Jönköping",
         pris: "15",
+        friText: "Vi är två personer som söker bilresa som ska åka",
+        anvandareIndex: 2,
     }
     
 
