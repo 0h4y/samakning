@@ -8,7 +8,7 @@ const onload = (window.onload = async () => {
 });
 
 /* En funktion för att generera en dynamisk tabell som innehåller data från localstorage */
-const generateTable = () => {
+const generateTable = async () => {
   const allaResorDiv = document.getElementById("allaResorTabell");
 
   /* HTML-elementen Table och Tbody skapas*/
@@ -68,13 +68,24 @@ const generateTable = () => {
 
   /* Vi kontrollerar om det finns data i localstorage, datan parsas från json-format till javascript*/
   if (localStorage.getItem("allaResor")) {
-    allaResor = JSON.parse(localStorage.getItem("allaResor"));
+    allaResor = await JSON.parse(localStorage.getItem("allaResor"));
   }
   if (localStorage.getItem("allaAnvändare")) {
-    allaAnvandare = JSON.parse(localStorage.getItem("allaAnvändare"));
+    allaAnvandare = await JSON.parse(localStorage.getItem("allaAnvändare"));
   }
 
   const keys = Object.keys(allaResor[0]);
+
+  const keysArray = [
+    "fran",
+    "till",
+    "antalResenarer",
+    "enkelPendling",
+    "nar",
+    "friText",
+    "pris",
+    "anvandareIndex",
+  ];
 
   /* Data från localstorage loopas ut på respektive rad  
       se: 
@@ -86,11 +97,17 @@ const generateTable = () => {
   for (let i = 0; i < allaResor.length; i++) {
     const row = document.createElement("tr");
 
-    for (let j = 0; j < keys.length; j++) {
+    for (let j = 0; j < keysArray.length; j++) {
       const cell = document.createElement("td");
 
-      const cellText = document.createTextNode(allaResor[i].value);
+      const textToCell = allaResor[i][keysArray[j]];
+      let cellText = document.createTextNode(textToCell);
 
+      if (j === 7) {
+        const fornamn = allaAnvandare[textToCell].Förnamn;
+        const efternamn = allaAnvandare[textToCell].Efternamn;
+        cellText = document.createTextNode(fornamn + " " + efternamn);
+      }
       cell.appendChild(cellText);
       row.appendChild(cell);
     }
