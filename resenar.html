@@ -11,38 +11,72 @@ Grupp gud, robin -->
   </head>
   <body>
     <div class="formContainer">
-      <form class="resForm">
+      <div id="userData"></div>
+      <form class="resForm" onsubmit="return false">
         <h3>Registrera dina uppgifter nedan:</h3>
         <!--TODO: RUllgardin-->
-        <label for="antalResenarer">Antal Resenärer:</label>
-        <input id="antalResenarer" type="text" required />
-
-        <label for="enkelPendling">Enkel eller pendling:</label>
-        <select name="" id="enkelPendling">
-          <option value="enkel">Enkel</option>
-          <option value="pendling">Pendling</option>
-        </select>
-
-        <label for="nar">När önskar du resa:</label>
-        <input type="datetime-local" name="" id="nar" />
-
-        <label for="fran">Från:</label>
-        <input type="text" id="fran" required />
-
-        <label for="till">Till:</label>
-        <input type="text" id="till" required />
-
-        <label for="pris">Ersättning du är villig att betala:</label>
-        <input type="text" id="pris" required />
-
-        <label for="friText">
-          Övrigt: (tex. rökfritt, pälsallergiker etc.)
+        <label for="antalResenarer"
+          >Antal Resenärer:
+          <select name="antalResenarer" id="antalResenarer" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
         </label>
-        <textarea name="" id="friText" cols="30" rows="10"></textarea>
 
-        <button id="saveButton" onClick="{saveResForm(event);}">
-          Registrera uppgifter
-        </button>
+        <label for="enkelPendling"
+          >Enkel eller pendling:
+          <select name="enkelPendling" id="enkelPendling" required>
+            <option value="enkel">Enkel</option>
+            <option value="pendling">Pendling</option>
+          </select>
+        </label>
+
+        <label for="nar"
+          >När önskar du resa:
+          <input type="datetime-local" name="nar" id="nar" required />
+        </label>
+
+        <label for="fran"
+          >Från:
+          <input type="text" name="fran" id="fran" maxlength="100" required />
+        </label>
+
+        <label for="till"
+          >Till:
+          <input type="text" name="till" id="till" required />
+        </label>
+
+        <label for="pris"
+          >Ersättning: kr/mil
+          <input
+            type="number"
+            name="pris"
+            id="pris"
+            min="0"
+            max="1000000"
+            required
+          />
+        </label>
+
+        <label for="friText"
+          >Övrigt:
+          <textarea
+            name="friText"
+            id="friText"
+            cols="30"
+            rows="10"
+            placeholder="tex. rökfritt, pälsallergiker etc."
+          ></textarea>
+        </label>
+
+        <input type="submit" id="saveButton" onClick="{saveResForm(event);}" />
       </form>
     </div>
 
