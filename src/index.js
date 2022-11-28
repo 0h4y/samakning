@@ -1,6 +1,8 @@
+import { dummy } from "./dummyAnvändare.js";
 /*Javascript för startsidan nedan... görs sist av allt*/
 
 const onload = (window.onload = async () => {
+  dummy();
   const allaResorDiv = document.getElementById("allaResorTabell");
   allaResorDiv.style = "background-color: #cccccc;";
   allaResorDiv.innerHTML = "Nedan presenteras alla registrerade resor:";
