@@ -100,7 +100,7 @@ function buttonClick(event) {
 }
 
 //Local storage
-const saveResForm = (event) => {
+function saveResForm(event){
   buttonClick(event);
   // preventDefault() hindrar sidan att laddas om
 
@@ -145,5 +145,4 @@ const saveResForm = (event) => {
   localStorage.setItem("allaResor", JSON.stringify(allaResorArray));
 
   console.log(JSON.parse(localStorage.getItem("allaResor")));
-  alert("hej");
 };
