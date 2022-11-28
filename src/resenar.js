@@ -99,16 +99,6 @@ const saveResForm = (event) => {
 
   //TODO: Validera alla fält innan koden nedan körs
 
-  //Alla fälten sparas med respektive nyckel i localstorage
-  localStorage.setItem("antalResenarer", resFormData.antalResenarer);
-  localStorage.setItem("enkelPendling", resFormData.enkelPendling);
-  localStorage.setItem("nar", resFormData.nar);
-  localStorage.setItem("friText", resFormData.friText);
-  localStorage.setItem("fran", resFormData.fran);
-  localStorage.setItem("till", resFormData.till);
-  localStorage.setItem("pris", resFormData.pris);
-  localStorage.setItem("anvandareIndex", resFormData.anvandareIndex);
-
   // localStorage.setItem("allaResor", JSON.stringify(allaResor));
 
   // const resa = {antalResenarer: resFormData.antalResenarer, };

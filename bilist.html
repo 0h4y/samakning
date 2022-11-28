@@ -16,19 +16,18 @@ Fritext kommentar
     <title>HERO - Bilist - Registrera dig och ditt fordon här</title>
     <link rel="stylesheet" href="src/bilist.css" />
 
-    <script>src="bilist.js"</script>
   </head>
   
   <body>
-    <script src="src/bilist.js"></script>
 
     <div class="header">
       <h1>Header</h1>
     </div>
 
     <div class="formContainer">
+    <div id="userData"></div>
       <!--Hämtar data från index -->
-      <form class="resForm" action="" method="GET">
+      <form class="resForm" onsubmit="return false">
 
         <div class="platser">
           <label for="antPlats">Antal platser:</label>
@@ -57,7 +56,7 @@ Fritext kommentar
         
         <div class="tid">
           <label for="avgangTid">Tid:</label>
-          <input type="time" id="avgangTid" name="tidNamn" step="1800" required>
+          <input type="time" id="avgangTid" name="tidNamn" required>
         </div>
         
         <div class="datumRetur">
@@ -89,7 +88,7 @@ Fritext kommentar
           </div>
           <div class="submitDiv">
         
-            <button id="submit" onclick="buttonClick(); saveResForm(event);">Skicka</button>
+            <input type="submit" id="submit" onclick="{saveResForm(event);}" />
         
           </div>
           <div class="">
@@ -100,5 +99,6 @@ Fritext kommentar
 
 </div>
 
+<script type="module" src="src/bilist.js"></script>
   </body>
 </html>

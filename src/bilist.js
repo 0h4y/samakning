@@ -71,7 +71,7 @@ avgångElem.onchange = function () {
   hemgångElem.setAttribute("min", this.value);
 };
 
-function buttonClick() {
+function buttonClick(event) {
   //Arrayer för tid och datum
   let date1 = [];
   let date2 = [];
@@ -101,8 +101,8 @@ function buttonClick() {
 
 //Local storage
 const saveResForm = (event) => {
+  buttonClick(event);
   // preventDefault() hindrar sidan att laddas om
-  event.preventDefault();
 
   let allaAnvandare = new Array();
 
@@ -112,9 +112,7 @@ const saveResForm = (event) => {
   //ex: resFormData.antalResenarer innehåller sedan antaler resenärer
   const resFormData = {
     antalResenarer: document.getElementById("antPlats").value,
-    enkelPendling:
-      document.getElementById("turResa")
-        .value /* ändra i html-filen, från checkbox till option: enkel, pendling */,
+    enkelPendling: document.getElementById("turResa").value,
     nar:
       document.getElementById("avgangDatum").value +
       "T" +
@@ -127,17 +125,6 @@ const saveResForm = (event) => {
   };
 
   //TODO: Validera alla fält innan koden nedan körs
-
-  //Alla fälten sparas med respektive nyckel i localstorage
-  localStorage.setItem("turResa", resFormData.turResa);
-  localStorage.setItem("avgangDatum", resFormData.avgångDatum);
-  localStorage.setItem("avgangTid", resFormData.avgangTid);
-  localStorage.setItem("hemgangDatum", resFormData.hemgangDatum);
-  localStorage.setItem("hemgangTid", resFormData.hemgångTid);
-  localStorage.setItem("startResa", resFormData.startResa);
-  localStorage.setItem("slutResa", resFormData.slutResa);
-  localStorage.setItem("pris", resFormData.pris);
-  localStorage.setItem("textRuta", resFormData.textRuta);
 
   // localStorage.setItem("allaResor", JSON.stringify(allaResor));
 
@@ -158,4 +145,5 @@ const saveResForm = (event) => {
   localStorage.setItem("allaResor", JSON.stringify(allaResorArray));
 
   console.log(JSON.parse(localStorage.getItem("allaResor")));
+  alert("hej");
 };
