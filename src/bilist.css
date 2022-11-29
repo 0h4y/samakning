@@ -50,9 +50,9 @@ body{
 
 .formContainer{
     background: #1abc9c40;
-    width: 20vw;
-    min-height: 30vh;
-    margin:  10rem auto;
+    min-width: 25vw;
+    height: auto;
+    margin:  2rem auto;
     border: 1px solid #cccccc;
     padding: 1rem;
 }

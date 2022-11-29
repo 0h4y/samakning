@@ -15,22 +15,20 @@ Fritext kommentar
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HERO - Bilist - Registrera dig och ditt fordon här</title>
     <link rel="stylesheet" href="src/bilist.css" />
-
   </head>
-  
-  <body>
 
+  <body>
     <div class="header">
       <h1>Header</h1>
     </div>
 
     <div class="formContainer">
-    <div id="userData"></div>
+      <div id="userData"></div>
       <!--Hämtar data från index -->
+      <hr />
       <form class="resForm" onsubmit="return false">
-
         <div class="platser">
-          <label for="antPlats">Antal platser:</label>
+          <label for="antPlats">Antal lediga platser:</label>
           <select id="antPlats" name="antPlats">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -44,61 +42,64 @@ Fritext kommentar
         </div>
 
         <div class="turRetur">
-          <label for="turResa">Tur/Retur:</label>
-          <input type="checkbox" id="turResa" name="turResa-namn">
-        
+          <label for="turResa">Enkelresa/Pendlingsresa:</label>
+          <select id="turResa" name="turResa-namn">
+            <option value="Enkelresa">Enkelresa</option>
+            <option value="Pendlingsresa">Pendlingsresa</option>
+          </select>
         </div>
-        
+
         <div class="datumTur">
-          <label for="avgangDatum">Avgång</label>
-          <input type="date" id="avgangDatum" name="avgangNamn" required>
+          <label for="avgangDatum">Avgång:</label>
+          <input type="date" id="avgangDatum" name="avgangNamn" required />
         </div>
-        
+
         <div class="tid">
           <label for="avgangTid">Tid:</label>
-          <input type="time" id="avgangTid" name="tidNamn" required>
+          <input type="time" id="avgangTid" name="tidNamn" required />
         </div>
-        
-        <div class="datumRetur">
+
+        <!-- <div class="datumRetur">
           <label for="hemgangDatum">Hemgång</label>
-          <input type="date" id="hemgangDatum" name="hemgangNamn" required>
+          <input type="date" id="hemgangDatum" name="hemgangNamn" required />
         </div>
-        
+
         <div class="tid">
           <label for="hemgangTid">Tid:</label>
-          <input type="time" id="hemgangTid" name="tidNamn" required>
-        </div>
-        
-        
+          <input type="time" id="hemgangTid" name="tidNamn" required />
+        </div> -->
+
         <div class="">
           <label for="startResa">Startpunkt:</label>
-          <input type="text" id="startResa" name="startResaNamn" required>
-          <label for="slutResa">slutpunkt:</label>
-          <input type="text" id="slutResa" name="slutResaNamn" required>
+          <input type="text" id="startResa" name="startResaNamn" required />
         </div>
-        
         <div class="">
-          <label for="pris">Önskad betalning</label>
-          <input type="text" id="pris" name="prisNamn" required>
+          <label for="slutResa">Slutpunkt:</label>
+          <input type="text" id="slutResa" name="slutResaNamn" required />
         </div>
-        
-          <div class="">
-            Övriga kommentarer<br>
-            <textarea name="textRuta" id="textRuta" rows="10" cols="50" placeholder="Allergier, djur, övriga önskemål..."></textarea>
-          </div>
-          <div class="submitDiv">
-        
-            <input type="submit" id="submit" onclick="saveResForm(event);" />
-        
-          </div>
-          <div class="">
-            <input type="reset" label="reset">
-          </div>
-          
-         </form>
 
+        <div class="">
+          <label for="pris">Önskad betalning:</label>
+          <input type="text" id="pris" name="prisNamn" required />
+        </div>
+
+        <div class="">
+          Övriga kommentarer:<br /><br />
+          <textarea
+            name="textRuta"
+            id="textRuta"
+            rows="10"
+            cols="50"
+            placeholder="Allergier, djur, övriga önskemål..."
+          ></textarea>
+        </div>
+        <br />
+        <div class="submitDiv">
+          <input type="submit" id="submit" onclick="saveResForm(event);" />
+          &emsp;&emsp;<input type="reset" label="reset" />
+        </div>
+      </form>
     </div>
     <script src="src/bilist.js"></script>
-
   </body>
 </html>

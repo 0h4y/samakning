@@ -66,10 +66,10 @@ let hemgångElem = document.querySelector("#hemgangDatum");
 avgångElem.setAttribute("min", dateTomorrow);
 
 //Metod för avgångsdadum
-avgångElem.onchange = function () {
-  //Begränsar hemgång tilsl datumet man väljer i avgång. this.Value är värdet från #avgångs-datum
-  hemgångElem.setAttribute("min", this.value);
-};
+// avgångElem.onchange = function () {
+//   //Begränsar hemgång tilsl datumet man väljer i avgång. this.Value är värdet från #avgångs-datum
+//   hemgångElem.setAttribute("min", this.value);
+// };
 
 function buttonClick(event) {
   //Arrayer för tid och datum
@@ -80,7 +80,7 @@ function buttonClick(event) {
 
   //plockar ut värdena från input
   date1 = document.getElementById("avgangDatum").value;
-  date2 = document.getElementById("hemgangDatum").value;
+  // date2 = document.getElementById("hemgangDatum").value;
   time1 = document.getElementById("avgangTid").value;
   time2 = document.getElementById("hemgangTid").value;
 
@@ -101,7 +101,7 @@ function buttonClick(event) {
 
 //Local storage
 function saveResForm(event){
-  buttonClick(event);
+  // buttonClick(event);
   // preventDefault() hindrar sidan att laddas om
 
   let allaAnvandare = new Array();
