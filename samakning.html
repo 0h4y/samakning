@@ -7,19 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HERO - Grundläggande info om dig</title>
     <link rel="stylesheet" href="/src/samakning.css" />
-    <link rel="stylesheet" href="/src/resenar.css" />
+
   </head>
 
   <body>
+    <div class="header">
+      <h1>Samåkning</h1>
+    </div>
+
     <div class="formContainer">
       <form id="form" class="resForm">
-        <div id="testdiv">
           <div>
             <h3>Registrera dina uppgifter nedan:</h3>
           </div>
 
           <div>
-            <label for="fornamn">Förnamn</label>
+            <label for="fornamn">Förnamn
             <input
               type="text"
               id="Förnamn"
@@ -28,10 +31,11 @@
               placeholder="John"
               required
             />
+          </label>
           </div>
 
           <div>
-            <label for="efternamn">Efternamn</label>
+            <label for="efternamn">Efternamn
             <input
               type="text"
               id="Efternamn"
@@ -40,10 +44,11 @@
               placeholder="Doe"
               required
             />
+          </label>
           </div>
 
           <div>
-            <label for="fodelsedatum">Födelsedatum</label>
+            <label for="fodelsedatum">Födelsedatum
             <!--JS så max blir dagens datum -18år, = man måste va 18+ för att boka.-->
             <!--JS så man inte kan va äldre än 120år-->
             <input
@@ -54,10 +59,11 @@
               min="1900-01-01"
               required
             />
+          </label>
           </div>
 
           <div>
-            <label for="mobil">Mobilnummer</label>
+            <label for="mobil">Mobilnummer
             <!--JS validerar att bara siffror används-->
             <input
               type="tel"
@@ -68,10 +74,11 @@
               maxlength="10"
               required
             />
+          </label>
           </div>
 
           <div>
-            <label for="epost">E-postadress</label>
+            <label for="epost">E-postadress
             <!--JS så att adressen innehåller ett @-->
             <input
               type="email"
@@ -80,9 +87,10 @@
               placeholder="john.doe@gmail.com"
               required
             />
+          </label>
           </div>
 
-          <div>
+          <div class="submitDiv">
             <!--JS för validering genomfort med hjälp av funktion validering()-->
             <!--Lägg till JS för att spara info om användare i en array-->
             <input
@@ -92,16 +100,26 @@
             />
             <input type="reset" />
           </div>
-        </div>
+          
+          <hr />
+          
+          <div id="bilreseval">
+            <!--JS för att dölja dessa knappar innan man har sparat sina uppgifter-->
+            <p>Här väljer du ifall du har bil och är förare eller om du är resenär</p>
+            <div class="knappar">
+              <div class="billist">
+            <button><a href="/bilist.html">Bilist</a></button>
+              </div>
+              <div class="resenar">
+            <button><a href="/resenar.html">Resenär</a></button>
+              </div>
+            </div>
+          </div>
+        
       </form>
     </div>
 
-    <div id="bilreseval">
-      <!--JS för att dölja dessa knappar innan man har sparat sina uppgifter-->
-      <p>Här väljer du ifall du har bil och är förare eller om du är resenär</p>
-      <button><a href="/bilist.html">Bilist</a></button>
-      <button><a href="/resenar.html">Resenär</a></button>
-    </div>
+    
 
     <script src="src/samakning.js"></script>
   </body>
