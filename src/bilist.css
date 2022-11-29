@@ -61,12 +61,6 @@ body{
 .formContainer{
     
     background: #1abc9c40;
-<<<<<<< HEAD
-    min-width: 25vw;
-    height: auto;
-    margin:  2rem auto;
-    border: 1px solid #cccccc;
-=======
     border-color: #1abc9c;
     border-width: 2px;
     border-style: solid;
@@ -75,7 +69,6 @@ body{
     min-width: 235px;
     min-height: 30vh;
     margin:  10rem auto;
->>>>>>> css
     padding: 1rem;
 }
 
