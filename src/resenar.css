@@ -1,12 +1,49 @@
 body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+    margin: 0;
 }
+.header {
+    margin: 0;
+    padding: 60px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+  }
+
+  
+  label {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+  }
+
+
+  input[type=text], input[type=datetime-local], input[type=number]{
+    width: 50%;
+    border-radius: 10px;
+    border: none;
+    margin-top: 5px;
+    padding: 5px;
+    float: right;
+  }
+
+  
+
 
 .formContainer{
-    width: 20vw;
+    display: flex;
+    background: #1abc9c40;
+    border-color: #1abc9c;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 10px;
+    width: 50%;
+    min-width: 235px;
     min-height: 30vh;
     margin:  10rem auto;
-    border: 1px solid #cccccc;
     padding: 1rem;
 }
 
@@ -14,6 +51,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
 }
 
 .resForm label{
@@ -34,4 +72,38 @@ body{
     
     display: flex;
     flex-direction: column;
+}
+
+#friText {
+    max-width: 50%;
+    min-width: 100%;
+    resize: none;
+}
+input[type=submit] {
+    margin-top: 10px;
+    background-color: white;
+    text-transform: uppercase;
+    border: none;
+    padding: 5px;
+    box-shadow: 3px 3px 3px rgb(61, 61, 61);
+    transition: all 0.3s ease 0s;
+    border-radius: 15px;
+}
+
+input[type=submit]:hover{
+    background-color: #1abc9c;
+    cursor: pointer;
+    transform: translateY(-3px);
+  }
+
+hr {
+    display: flex;
+    width: 100%;
+    border-color: #1abc9c40;
+}
+.submitDiv{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    justify-content: center;
 }
