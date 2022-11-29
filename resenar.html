@@ -10,9 +10,13 @@ Grupp gud, robin -->
     <link rel="stylesheet" href="src/resenar.css" />
   </head>
   <body>
+    <div class="header">
+      <h1>Resenär</h1>
+    </div>
     <div class="formContainer">
-      <div id="userData"></div>
       <form class="resForm" onsubmit="return false">
+        <div id="userData"></div>
+        <hr />
         <h3>Registrera dina uppgifter nedan:</h3>
         <!--TODO: RUllgardin-->
         <label for="antalResenarer"
@@ -29,7 +33,7 @@ Grupp gud, robin -->
             <option value="9">9</option>
           </select>
         </label>
-
+        
         <label for="enkelPendling"
           >Enkel eller pendling:
           <select name="enkelPendling" id="enkelPendling" required>
@@ -37,21 +41,26 @@ Grupp gud, robin -->
             <option value="pendling">Pendling</option>
           </select>
         </label>
+        
 
         <label for="nar"
           >När önskar du resa:
           <input type="datetime-local" name="nar" id="nar" required />
         </label>
 
+
+        <div class="textbox">
         <label for="fran"
           >Från:
           <input type="text" name="fran" id="fran" maxlength="100" required />
         </label>
+        
 
         <label for="till"
           >Till:
           <input type="text" name="till" id="till" required />
         </label>
+
 
         <label for="pris"
           >Ersättning: kr/mil
@@ -65,17 +74,16 @@ Grupp gud, robin -->
           />
         </label>
 
-        <label for="friText"
-          >Övrigt:
-          <textarea
-            name="friText"
-            id="friText"
-            cols="30"
-            rows="10"
-            placeholder="tex. rökfritt, pälsallergiker etc."
-          ></textarea>
-        </label>
-
+        <div class="">
+            Övrigt: 
+            <textarea
+              name="friText"
+              id="friText"
+              cols="50"
+              rows="10"
+              placeholder="tex. rökfritt, pälsallergiker etc."
+            ></textarea>
+        </div>
         <input type="submit" id="saveButton" onclick="{saveResForm(event);}" />
       </form>
     </div>
