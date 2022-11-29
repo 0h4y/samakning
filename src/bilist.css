@@ -13,19 +13,32 @@ body{
     font-size: 30px;
   }
 
+  label {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+  }
+
   input[type=text], input[type=date], input[type=time] {
     width: 50%;
     border-radius: 10px;
     border: none;
     margin-top: 5px;
     padding: 5px;
+    float: right;
   }
 
   input[type=time] {
-    width: fit-content;
+    display: flex;
+    width: 50%;
 }
 
-  button, input[type=reset] {
+.textbox {
+    width: 100% !important;
+}
+
+  input[type=submit], input[type=reset] {
     margin-top: 10px;
     background-color: white;
     text-transform: uppercase;
@@ -36,36 +49,26 @@ body{
     border-radius: 15px;
 }
 
-  button:hover, input[type=reset]:hover {
+  input[type=submit]:hover, input[type=reset]:hover {
     background-color: #1abc9c;
     cursor: pointer;
     transform: translateY(-3px);
   }
 
-/*.header h1 {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 90px;
+hr {
     display: flex;
-    align-items: center;
-    background-color: coral;
-    border: 2px;
-    border-style: none none solid none;
-    border-color: rgb(250, 118, 70);
-    animation-name: anim;
-    animation-direction: normal;
-    animation-duration: .2s;
-}*/
+    width: 100%;
+    border-color: #1abc9c40;
+}
 
 .formContainer{
-    
+    display: flex;
     background: #1abc9c40;
     border-color: #1abc9c;
     border-width: 2px;
     border-style: solid;
     border-radius: 10px;
-    width: 20vw;
+    width: 50%;
     min-width: 235px;
     min-height: 30vh;
     margin:  10rem auto;
@@ -76,6 +79,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
 }
 
 .resForm label{
@@ -86,8 +90,9 @@ body{
     margin-top: 1rem;
 }
 
-#antPlats {
+#antPlats, #turResa {
     border: none;
+    outline: none;
     padding: 5px;
 }
 
@@ -107,4 +112,11 @@ body{
     max-width: 100%;
     min-width: 100%;
     resize: none;
+}
+
+.submitDiv {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    justify-content: center;
 }
