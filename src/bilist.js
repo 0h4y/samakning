@@ -104,18 +104,26 @@ const saveResForm = (event) => {
   // preventDefault() hindrar sidan att laddas om
   event.preventDefault();
 
+  let allaAnvandare = new Array();
+
+  allaAnvandare = JSON.parse(localStorage.getItem("allaAnvändare"));
+
   //Lagra datan från formuläret i objektet {resFormData}
   //ex: resFormData.antalResenarer innehåller sedan antaler resenärer
   const resFormData = {
-    turResa: document.getElementById("turResa").value,
-    avgångDatum: document.getElementById("avgangDatum").value,
-    avgangTid: document.getElementById("avgangTid").value,
-    hemgangDatum: document.getElementById("hemgangDatum").value,
-    hemgångTid: document.getElementById("hemgangTid").value,
-    startResa: document.getElementById("startResa").value,
-    slutResa: document.getElementById("slutResa").value,
+    antalResenarer: document.getElementById("antPlats").value,
+    enkelPendling:
+      document.getElementById("turResa")
+        .value /* ändra i html-filen, från checkbox till option: enkel, pendling */,
+    nar:
+      document.getElementById("avgangDatum").value +
+      "T" +
+      document.getElementById("avgangTid").value,
+    fran: document.getElementById("startResa").value,
+    till: document.getElementById("slutResa").value,
     pris: document.getElementById("pris").value,
-    textRuta: document.getElementById("textRuta").value,
+    friText: document.getElementById("textRuta").value,
+    anvandareIndex: allaAnvandare.lenght,
   };
 
   //TODO: Validera alla fält innan koden nedan körs
