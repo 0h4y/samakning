@@ -16,7 +16,6 @@ body{
   label {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
     width: 100%;
   }
 
@@ -105,5 +104,6 @@ hr {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
