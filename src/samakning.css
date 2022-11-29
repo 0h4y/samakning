@@ -108,6 +108,10 @@ button a:visited {
     margin-bottom: 20px;
     margin-top: 10px;
 }
+#bilreseval{
+  visibility: hidden;
+
+}
 
 hr {
     display: flex;

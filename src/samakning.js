@@ -113,7 +113,7 @@ function validering() {
 
   // Kollar ifall det har kommit något problem i formuläret
   if (valid == 0) {
-    document.getElementById("form").style.display = "none";
+    document.getElementById("collapseForm").style.display = "none";
     document.getElementById("bilreseval").style.visibility = "visible";
 
     //Skickar data till AnvandarData
