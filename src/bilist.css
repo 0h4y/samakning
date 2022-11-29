@@ -82,6 +82,11 @@ hr {
     width: 100%;
 }
 
+.kommentarer {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
 .resForm label{
     margin-top: 1rem;
 }
@@ -94,6 +99,10 @@ hr {
     border: none;
     outline: none;
     padding: 5px;
+}
+
+#pris label {
+    margin-bottom: 20px;
 }
 
 #antalResenarer{

@@ -64,13 +64,14 @@ Fritext kommentar
           </label>
         </div>
 
-        <div class="">
+        <div>
           <label for="pris">Önskad betalning: <input type="text" id="pris" name="prisNamn" required />
           </label>
         </div>
 
-        <div class="">
-          Övriga kommentarer:<br /><br />
+        <div class="kommentarer">
+          Övriga kommentarer:
+        </div>
           <textarea
             name="textRuta"
             id="textRuta"
@@ -78,7 +79,7 @@ Fritext kommentar
             cols="50"
             placeholder="Allergier, djur, övriga önskemål..."
           ></textarea>
-        </div>
+
         <br />
         <div class="submitDiv">
           <input type="submit" id="submit" onclick="saveResForm(event);" />
