@@ -6,17 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HERO - En samåkningstjänst för hjältar</title>
+    <link rel="stylesheet" href="src/index.css" />
   </head>
   <body>
-    <main>
-      <h1>Om Samåkningstjänsten</h1>
-      <h2>Med en klimatkris som blir allt mer påtaglig vill vi skapa en sida för att öka intresset för samåkning.</h2>
-      <p>På denna sida så kan du hitta resor som passar dig och det är du som sätter priset!
-         Du behöver endast registrera dig som bilist eller resenär och sedan ange dina specifikationer så är du igång.
-      </p>
-    </main>
-    <div><a href="samakning.html">Klicka här för att registrera dig</a></div>
-    <div id="allaResorTabell"></div>
+    <div class="header">
+      <h1>Hem</h1>
+    </div>
+    <div id="intro">
+      <main>
+        <div id="text"><h1>Om Samåkningstjänsten</h1></div>
+        <div id="text"><h2>Med en klimatkris som blir allt mer påtaglig vill vi skapa en sida för att öka intresset för samåkning.</h2></div>
+        <div id="text"><p>På denna sida så kan du hitta resor som passar dig och det är du som sätter priset!
+          Du behöver endast registrera dig som bilist eller resenär och sedan ange dina specifikationer så är du igång.
+       </p></div>
+      </main>
+    </div>
+    <div><div id="allaResorTabell"></div></div>
+    <div><div id="button"><a href="samakning.html" id="register">Registrera dig</a></div></div>
     <script type="module" src="src/dummyAnvändare.js"></script>
     <script type="module" src="src/index.js"></script>
   </body>
