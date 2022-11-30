@@ -182,4 +182,5 @@ function saveResForm(event) {
   localStorage.setItem("allaResor", JSON.stringify(allaResorArray));
 
   console.log(JSON.parse(localStorage.getItem("allaResor")));
+  console.log(JSON.parse(localStorage.getItem("allaAnvändare")));
 }
