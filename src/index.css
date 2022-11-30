@@ -1,0 +1,98 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+    margin: 0;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+}
+
+#text {
+    display: flex;
+    justify-content: center;
+}
+
+main h1, main h2, main p {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.header {
+    margin: 0;
+    padding: 60px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+  }
+
+  #intro {
+    display: flex;
+    justify-content: center;
+  }
+
+  #button {
+    font-size: large;
+    background-color: rgb(246, 182, 152);
+    width: 20%;
+    height: 35px;
+    border-radius: 15px;
+  }
+
+  #register {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+  }
+
+  #allaResorTabell {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin-bottom: 50px;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    #allaResorTabell {
+        font-size: 10px;
+    }
+    #button {
+        font-size: 12px;
+        height: 30px;
+      }
+  }
+
+    @media only screen and (max-width: 800px) {
+        #allaResorTabell {
+            font-size: 8px;
+        }
+        #button {
+            font-size: 8px;
+            height: 25px;
+          }
+          
+        main h1 {
+            font-size: 16px;
+        }
+        main h2 {
+            font-size: 14px;
+        }
+        main p {
+            font-size: 12px;
+        }
+    }
+
+    @media only screen and (max-width: 550px) {
+        #allaResorTabell {
+            font-size: 6px;
+        }
+        #button {
+            font-size: 6px;
+          }
+    }

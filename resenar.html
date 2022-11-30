@@ -15,10 +15,11 @@ Grupp gud, robin -->
     </div>
     <div class="formContainer">
       <form class="resForm" onsubmit="return false">
-        <div id="userData"></div>
+        <div id="userData">
+          <h4>Registrerade personuppgifter:</h4>
+        </div>
         <hr />
-        <h3>Registrera dina uppgifter nedan:</h3>
-        <!--TODO: RUllgardin-->
+        <h4>Registrera uppgifter som resenär nedan:</h4>
         <label for="antalResenarer"
           >Antal Resenärer:
           <select name="antalResenarer" id="antalResenarer" required>
@@ -75,7 +76,10 @@ Grupp gud, robin -->
         </label>
 
         <div class="">
-            Övrigt: 
+          <br />
+            Övrigt:
+            <br />
+            <br />
             <textarea
               name="friText"
               id="friText"
