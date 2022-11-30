@@ -118,7 +118,6 @@ const saveResForm = (event) => {
 
   allaAnvandare = JSON.parse(localStorage.getItem("allaAnvändare"));
 
-  const senasteAnvandaren = allaAnvandare.pop();
   //Lagra datan från formuläret i objektet {resFormData}
   //ex: resFormData.antalResenarer innehåller sedan antaler resenärer
   const resFormData = {
@@ -129,7 +128,7 @@ const saveResForm = (event) => {
     fran: fran.value,
     till: till.value,
     pris: pris.value,
-    anvandareIndex: allaAnvandare.length,
+    anvandareIndex: allaAnvandare.length - 1,
   };
 
   //if (valideraIndata(resFormData));

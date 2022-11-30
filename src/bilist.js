@@ -158,9 +158,10 @@ function saveResForm(event) {
     till: document.getElementById("slutResa").value,
     pris: document.getElementById("pris").value,
     friText: document.getElementById("textRuta").value,
-    anvandareIndex: allaAnvandare.lenght,
+    anvandareIndex: allaAnvandare.length - 1,
   };
 
+  console.log(allaAnvandare.length);
   //TODO: Validera alla fält innan koden nedan körs
 
   // localStorage.setItem("allaResor", JSON.stringify(allaResor));
