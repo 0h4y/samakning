@@ -4,8 +4,7 @@ import { dummy } from "./dummyAnvändare.js";
 const onload = (window.onload = async () => {
   dummy();
   const allaResorDiv = document.getElementById("allaResorTabell");
-  allaResorDiv.style = "background-color: #cccccc;";
-  allaResorDiv.innerHTML = "Nedan presenteras alla registrerade resor:";
+  //allaResorDiv.style = "background-color: #cccccc;";
   generateTable();
 });
 
@@ -19,6 +18,7 @@ const generateTable = async () => {
 
   /* Element för rubrikraden skapas nedan, än så länge är de bara element som inte finns i DOM:en*/
   const headRow = document.createElement("tr");
+  const headHeadRow = document.createElement("tr");
 
   const franTd = document.createElement("td");
   const tillTd = document.createElement("td");
@@ -29,6 +29,13 @@ const generateTable = async () => {
   const prisTd = document.createElement("td");
   const anvandareTd = document.createElement("td");
 
+  // td till översta 
+  const rubrikForTabellenTd = document.createElement("td");
+
+  // en rubrik över alla andra rubriker
+  const rubrikForTabellenText = document.createTextNode("Nedan presenteras alla registrerade resor:");
+
+  // Rubriker för tabellen som presenterar alla resor
   const franHeaderText = document.createTextNode("Från:");
   const tillHeaderText = document.createTextNode("Till:");
   const antalResenarerHeaderText = document.createTextNode("Antal resenärer:");
@@ -40,6 +47,9 @@ const generateTable = async () => {
 
   /* Elementen skapas i DOM:en inifrån och ut. (TEXT -> <td> -> <tr> -> <tbody> -> <table>) */
 
+  rubrikForTabellenTd.appendChild(rubrikForTabellenText);
+  rubrikForTabellenTd.colSpan = "8";
+
   franTd.appendChild(franHeaderText);
   tillTd.appendChild(tillHeaderText);
   antalResenarerTd.appendChild(antalResenarerHeaderText);
@@ -48,6 +58,9 @@ const generateTable = async () => {
   friTextTd.appendChild(friTextHeaderText);
   prisTd.appendChild(prisHeaderText);
   anvandareTd.appendChild(anvandareHeaderText);
+
+  //alla rubriker läggs in till <tr> i DOM:en
+  headHeadRow.appendChild(rubrikForTabellenTd);
 
   headRow.appendChild(franTd);
   headRow.appendChild(tillTd);
@@ -58,10 +71,14 @@ const generateTable = async () => {
   headRow.appendChild(prisTd);
   headRow.appendChild(anvandareTd);
 
+  //<tr> läggs till i <tbody>
+  tblBody.appendChild(headHeadRow);
   tblBody.appendChild(headRow);
 
+  //<tbody> läggs till i <table>
   tbl.appendChild(tblBody);
 
+  //<table> läggs till i diven class="allaResor"
   allaResorDiv.appendChild(tbl);
 
   /* En array för att hålla data från localstorage skapas, användare respektive resor */

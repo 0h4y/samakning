@@ -25,7 +25,9 @@ Fritext kommentar
     <div class="formContainer">
       <!--Hämtar data från index -->
       <form class="resForm" onsubmit="return false">
-        <div id="userData"></div>
+        <div id="userData">
+          <h4>Registrerade personuppgifter:</h4>
+        </div>
         <hr />
         <div class="platser">
           <label for="antPlats">Antal lediga platser:</label>
@@ -64,13 +66,14 @@ Fritext kommentar
           </label>
         </div>
 
-        <div class="">
+        <div>
           <label for="pris">Önskad betalning: <input type="text" id="pris" name="prisNamn" required />
           </label>
         </div>
 
-        <div class="">
-          Övriga kommentarer:<br /><br />
+        <div class="kommentarer">
+          Övriga kommentarer:
+        </div>
           <textarea
             name="textRuta"
             id="textRuta"
@@ -78,7 +81,7 @@ Fritext kommentar
             cols="50"
             placeholder="Allergier, djur, övriga önskemål..."
           ></textarea>
-        </div>
+
         <br />
         <div class="submitDiv">
           <input type="submit" id="submit" onclick="saveResForm(event);" />

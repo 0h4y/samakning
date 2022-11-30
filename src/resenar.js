@@ -19,11 +19,48 @@ const onload = (window.onload = (event) => {
 
   const senasteAnvandaren = allaAnvandare.pop();
 
-  const värden = Object.values(senasteAnvandaren);
+  const värden = [
+    senasteAnvandaren.Förnamn,
+    senasteAnvandaren.Efternamn,
+    senasteAnvandaren.fodelsedatum,
+    senasteAnvandaren.mobil,
+    senasteAnvandaren.epost,
+  ];
 
-  värden.forEach((värde) => {
-    userdata.innerHTML += värde + "<br />";
-  });
+  //const värden = Object.values(senasteAnvandaren);
+
+  const dataNamn = [
+    "Förnamn:",
+    "Efternamn:",
+    "Födelsedatum:",
+    "Mobilnummer:",
+    "E-post:",
+  ];
+
+  const tbl = document.createElement("table");
+  const tblBody = document.createElement("tbody");
+
+  for (let i = 0; i < värden.length; i++) {
+    const element = värden[i];
+    const row = document.createElement("tr");
+
+    const dataText = document.createTextNode(dataNamn[i]);
+    const dataCell = document.createElement("td");
+    dataCell.appendChild(dataText);
+
+    const text = document.createTextNode(värden[i]);
+    const cell = document.createElement("td");
+    cell.appendChild(text);
+
+    row.appendChild(dataCell);
+    row.appendChild(cell);
+
+    tblBody.appendChild(row);
+  }
+
+  tbl.appendChild(tblBody);
+
+  userdata.appendChild(tbl);
 });
 
 const antalResenarer = document.getElementById("antalResenarer");
@@ -81,7 +118,6 @@ const saveResForm = (event) => {
 
   allaAnvandare = JSON.parse(localStorage.getItem("allaAnvändare"));
 
-  const senasteAnvandaren = allaAnvandare.pop();
   //Lagra datan från formuläret i objektet {resFormData}
   //ex: resFormData.antalResenarer innehåller sedan antaler resenärer
   const resFormData = {
@@ -92,7 +128,7 @@ const saveResForm = (event) => {
     fran: fran.value,
     till: till.value,
     pris: pris.value,
-    anvandareIndex: allaAnvandare.length,
+    anvandareIndex: allaAnvandare.length - 1,
   };
 
   //if (valideraIndata(resFormData));

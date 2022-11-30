@@ -11,11 +11,48 @@ const onload = (window.onload = (event) => {
 
   const senasteAnvandaren = allaAnvandare.pop();
 
-  const värden = Object.values(senasteAnvandaren);
+  const värden = [
+    senasteAnvandaren.Förnamn,
+    senasteAnvandaren.Efternamn,
+    senasteAnvandaren.fodelsedatum,
+    senasteAnvandaren.mobil,
+    senasteAnvandaren.epost,
+  ];
 
-  värden.forEach((värde) => {
-    userdata.innerHTML += värde + "<br />";
-  });
+  //const värden = Object.values(senasteAnvandaren);
+
+  const dataNamn = [
+    "Förnamn:",
+    "Efternamn:",
+    "Födelsedatum:",
+    "Mobilnummer:",
+    "E-post:",
+  ];
+
+  const tbl = document.createElement("table");
+  const tblBody = document.createElement("tbody");
+
+  for (let i = 0; i < värden.length; i++) {
+    const element = värden[i];
+    const row = document.createElement("tr");
+
+    const dataText = document.createTextNode(dataNamn[i]);
+    const dataCell = document.createElement("td");
+    dataCell.appendChild(dataText);
+
+    const text = document.createTextNode(värden[i]);
+    const cell = document.createElement("td");
+    cell.appendChild(text);
+
+    row.appendChild(dataCell);
+    row.appendChild(cell);
+
+    tblBody.appendChild(row);
+  }
+
+  tbl.appendChild(tblBody);
+
+  userdata.appendChild(tbl);
 });
 
 //Lägger in dagens datum i currentDateTime
@@ -46,7 +83,7 @@ let avgångTidElem = document.querySelector("#avgangTid");
 let hemgångTidElem = document.querySelector("#hemgangTid");
 
 //sätter ett minimum på dagens datum
-avgångTidElem.setAttribute("min", timeTomorrow);
+//avgångTidElem.setAttribute("min", timeTomorrow);
 
 //Skriver ut siffrasn 0 så datum alltid innehåller 2 siffror
 if (date < 10) {
@@ -100,7 +137,7 @@ function buttonClick(event) {
 }
 
 //Local storage
-function saveResForm(event){
+function saveResForm(event) {
   // buttonClick(event);
   // preventDefault() hindrar sidan att laddas om
 
@@ -121,9 +158,10 @@ function saveResForm(event){
     till: document.getElementById("slutResa").value,
     pris: document.getElementById("pris").value,
     friText: document.getElementById("textRuta").value,
-    anvandareIndex: allaAnvandare.lenght,
+    anvandareIndex: allaAnvandare.length - 1,
   };
 
+  console.log(allaAnvandare.length);
   //TODO: Validera alla fält innan koden nedan körs
 
   // localStorage.setItem("allaResor", JSON.stringify(allaResor));
@@ -145,4 +183,5 @@ function saveResForm(event){
   localStorage.setItem("allaResor", JSON.stringify(allaResorArray));
 
   console.log(JSON.parse(localStorage.getItem("allaResor")));
-};
+  console.log(JSON.parse(localStorage.getItem("allaAnvändare")));
+}

@@ -1,11 +1,127 @@
-#bilreseval{
-    visibility: hidden;
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+    margin: 0;
 }
-a{
+
+.header {
+    margin: 0;
+    padding: 60px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+  }
+
+  label {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+  }
+
+  input[type=text], input[type=date], input[type=tel], input[type=email] {
+    width: 50%;
+    border-radius: 10px;
+    border: none;
+    margin-top: 5px;
+    padding: 5px;
+    float: right;
+  }
+
+
+
+.textbox {
+    width: 100% !important;
+}
+
+  input[type=button], input[type=reset], button {
+    margin-top: 50px;
+    margin: 20px;
+    background-color: white;
+    text-transform: uppercase;
+    border: none;
+    padding: 5px;
+    box-shadow: 3px 3px 3px rgb(61, 61, 61);
+    transition: all 0.3s ease 0s;
+    border-radius: 15px;
+}
+
+  input[type=button]:hover, input[type=reset]:hover, button:hover {
+    background-color: #1abc9c;
+    cursor: pointer;
+    transform: translateY(-3px);
+  }
+
+.formContainer{
+    display: flex;
+    background: #1abc9c40;
+    border-color: #1abc9c;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 10px;
+    width: 50%;
+    min-width: 235px;
+    min-height: 30vh;
+    margin:  10rem auto;
+    padding: 1rem;
+}
+
+button a {
     color: black;
     text-decoration: none;
 }
-#testdiv div{
+
+button a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.resForm {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.resForm label{
+    margin-top: 1rem;
+}
+
+.resForm button{
+    margin-top: 1rem;
+}
+
+
+.submitDiv {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.knappar {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+#bilreseval{
+  visibility: hidden;
+
+}
+
+hr {
+    display: flex;
+    width: 100%;
+    border-color: #1abc9c40;
+}
+
+@media only screen and (max-width: 600px) {
+  .header {
+    text-align: center;
+    font-size: 20px;
+  }
 }
