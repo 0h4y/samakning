@@ -20,6 +20,7 @@ const generateTable = async () => {
   const headRow = document.createElement("tr");
   const headHeadRow = document.createElement("tr");
 
+  const resetypTd = document.createElement("td");
   const franTd = document.createElement("td");
   const tillTd = document.createElement("td");
   const antalResenarerTd = document.createElement("td");
@@ -29,13 +30,16 @@ const generateTable = async () => {
   const prisTd = document.createElement("td");
   const anvandareTd = document.createElement("td");
 
-  // td till översta 
+  // td till översta
   const rubrikForTabellenTd = document.createElement("td");
 
   // en rubrik över alla andra rubriker
-  const rubrikForTabellenText = document.createTextNode("Nedan presenteras alla registrerade resor:");
+  const rubrikForTabellenText = document.createTextNode(
+    "Nedan presenteras alla registrerade resor:"
+  );
 
   // Rubriker för tabellen som presenterar alla resor
+  const resetypHeaderText = document.createTextNode("Resenär / Bilist:");
   const franHeaderText = document.createTextNode("Från:");
   const tillHeaderText = document.createTextNode("Till:");
   const antalResenarerHeaderText = document.createTextNode("Antal resenärer:");
@@ -48,8 +52,9 @@ const generateTable = async () => {
   /* Elementen skapas i DOM:en inifrån och ut. (TEXT -> <td> -> <tr> -> <tbody> -> <table>) */
 
   rubrikForTabellenTd.appendChild(rubrikForTabellenText);
-  rubrikForTabellenTd.colSpan = "8";
+  rubrikForTabellenTd.colSpan = "9";
 
+  resetypTd.appendChild(resetypHeaderText);
   franTd.appendChild(franHeaderText);
   tillTd.appendChild(tillHeaderText);
   antalResenarerTd.appendChild(antalResenarerHeaderText);
@@ -62,6 +67,7 @@ const generateTable = async () => {
   //alla rubriker läggs in till <tr> i DOM:en
   headHeadRow.appendChild(rubrikForTabellenTd);
 
+  headRow.appendChild(resetypTd);
   headRow.appendChild(franTd);
   headRow.appendChild(tillTd);
   headRow.appendChild(antalResenarerTd);
@@ -93,9 +99,8 @@ const generateTable = async () => {
     allaAnvandare = await JSON.parse(localStorage.getItem("allaAnvändare"));
   }
 
-  const keys = Object.keys(allaResor[0]);
-
   const keysArray = [
+    "resetyp",
     "fran",
     "till",
     "antalResenarer",
@@ -122,7 +127,7 @@ const generateTable = async () => {
       const textToCell = allaResor[i][keysArray[j]];
       let cellText = document.createTextNode(textToCell);
 
-      if (j === 7) {
+      if (j === 8) {
         const fornamn = allaAnvandare[textToCell].Förnamn;
         const efternamn = allaAnvandare[textToCell].Efternamn;
         cellText = document.createTextNode(fornamn + " " + efternamn);

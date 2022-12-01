@@ -1,10 +1,8 @@
 /*Javascript för resenär nedan...
 Grupp gud, robin
-
-test med datum
-  console.log(new Date().toISOString().slice("0", "16"));
 */
 
+//window.onload körs efter att all HTML renderats klart.
 const onload = (window.onload = (event) => {
   if (document.getElementById("nar") === "") {
     let currentDate = new Date().toISOString().slice("0", "16");
@@ -129,6 +127,7 @@ const saveResForm = (event) => {
     till: till.value,
     pris: pris.value,
     anvandareIndex: allaAnvandare.length - 1,
+    resetyp: "Resenär",
   };
 
   //if (valideraIndata(resFormData));

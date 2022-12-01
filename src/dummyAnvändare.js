@@ -17,6 +17,7 @@ export const dummy = () => {
     pris: "20",
     friText: "Ej rökare",
     anvandareIndex: 0,
+    resetyp: "Bilist",
   };
 
   // Dummyanvändare
@@ -36,6 +37,7 @@ export const dummy = () => {
     pris: "20",
     friText: "Inga djur med i bilen",
     anvandareIndex: 1,
+    resetyp: "Bilist",
   };
 
   // Dummyanvändare
@@ -55,6 +57,7 @@ export const dummy = () => {
     pris: "15",
     friText: "Vi är två personer som söker bilresa som ska åka",
     anvandareIndex: 2,
+    resetyp: "Resenär",
   };
 
   // Skapar två arrayer, en för resor, och en för användare

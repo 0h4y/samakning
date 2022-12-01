@@ -2,6 +2,7 @@
 Grupp, mattias, savio, martin K
 */
 
+//window.onload körs efter att all HTML renderats klart.
 const onload = (window.onload = (event) => {
   const userdata = document.getElementById("userData");
 
@@ -10,7 +11,8 @@ const onload = (window.onload = (event) => {
   allaAnvandare = JSON.parse(localStorage.getItem("allaAnvändare"));
 
   const senasteAnvandaren = allaAnvandare.pop();
-
+  //Värden från objektet allaAnvändare överförs till en array
+  //för att lätt kunna loopas ihop med titlarna till dessa värden som senare lagras i dataNamn
   const värden = [
     senasteAnvandaren.Förnamn,
     senasteAnvandaren.Efternamn,
@@ -159,14 +161,8 @@ function saveResForm(event) {
     pris: document.getElementById("pris").value,
     friText: document.getElementById("textRuta").value,
     anvandareIndex: allaAnvandare.length - 1,
+    resetyp: "Bilist",
   };
-
-  console.log(allaAnvandare.length);
-  //TODO: Validera alla fält innan koden nedan körs
-
-  // localStorage.setItem("allaResor", JSON.stringify(allaResor));
-
-  // const resa = {antalResenarer: resFormData.antalResenarer, };
 
   let allaResorArray = new Array();
 
@@ -174,11 +170,7 @@ function saveResForm(event) {
     allaResorArray = JSON.parse(localStorage.getItem("allaResor"));
   }
 
-  //console.log(allaResorArray);
-
   allaResorArray.push(resFormData);
-
-  //console.log(allaResorArray);
 
   localStorage.setItem("allaResor", JSON.stringify(allaResorArray));
 
