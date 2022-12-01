@@ -10,7 +10,7 @@ export const dummy = () => {
 
   const Res0 = {
     antalResenarer: "4",
-    enkelPendling: "on",
+    enkelPendling: "Enkelresa",
     nar: "2054-05-02T19:00",
     fran: "Mjölby",
     till: "Malta",
@@ -30,7 +30,7 @@ export const dummy = () => {
   };
   const Res1 = {
     antalResenarer: "3",
-    enkelPendling: "off",
+    enkelPendling: "Pendlingsresa",
     nar: "2023-01-15T08:00",
     fran: "Linköping",
     till: "Stockholm",
@@ -50,7 +50,7 @@ export const dummy = () => {
   };
   const Res2 = {
     antalResenarer: "2",
-    enkelPendling: "Enkel",
+    enkelPendling: "Enkelresa",
     nar: "2022-11-10T10:00",
     fran: "Ljungsbro",
     till: "Jönköping",
