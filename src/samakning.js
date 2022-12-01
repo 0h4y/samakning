@@ -8,16 +8,18 @@ window.onload = function () {
   let maxdate = new Date(
     date.getFullYear() - 18,
     date.getMonth() + 1,
-    date.getDate()
+    date.getDate() + 1
   );
+  if (date.getMonth() == 11) {
+    maxdate = new Date(
+      date.getFullYear() - 18,
+      date.getMonth(),
+      date.getDate() + 1
+    );
+  }
   // Konverterar till sträng, för att det är så setAttribute vill ha det på sitt andra argument
-  let maxdateStr =
-    "" +
-    maxdate.getFullYear() +
-    "-" +
-    maxdate.getMonth() +
-    "-" +
-    maxdate.getDate();
+  let maxdateStr = maxdate.toISOString().split("T")[0];
+
   // Hittar födelsedatum väljaren, och gör om det till en variabel som man kan använda för saker likt setAttribute
   let fodelsedatum = document.getElementById("fodelsedatum");
   // Gör om Minimum åldern av användarna till 18
@@ -29,14 +31,15 @@ window.onload = function () {
     date.getMonth() + 1,
     date.getDate()
   );
+  if (date.getMonth() == 11) {
+    mindate = new Date(
+      date.getFullYear() - 120,
+      date.getMonth(),
+      date.getDate()
+    );
+  }
   // Konverterar till sträng, för att det är så setAttribute vill ha det på sitt andra argument
-  let mindateStr =
-    "" +
-    mindate.getFullYear() +
-    "-" +
-    mindate.getMonth() +
-    "-" +
-    mindate.getDate();
+  let mindateStr = mindate.toISOString().split("T")[0];
   // Gör om Maxåldern av användarna till 120år
   fodelsedatum.setAttribute("min", mindateStr);
 };
@@ -124,7 +127,12 @@ function validering() {
     // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
     valid++;
   }
-
+  if (!document.getElementById("fodelsedatum").value) {
+    // Tillfällig alert
+    alert("Fyll i ett födelsedatum tack.");
+    // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
+    valid++;
+  }
   // Kollar ifall det har kommit något problem i formuläret
   if (valid == 0) {
     document.getElementById("collapseForm").style.display = "none";
