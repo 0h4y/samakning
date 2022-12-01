@@ -32,7 +32,7 @@
             class="namn"
             name="fornamn"
             placeholder="John"
-
+            minlength="1"
             required
           />
         </label>
@@ -46,7 +46,7 @@
             class="namn"
             name="efternamn"
             placeholder="Doe"
-
+            minlength="1"
             required
           />
         </label>
@@ -60,9 +60,6 @@
             type="date"
             id="fodelsedatum"
             name="fodelsedatum"
-            max="2020-12-31"
-            min="1900-01-01"
-
             required
           />
         </label>
@@ -102,7 +99,7 @@
           <!--Lägg till JS för att spara info om användare i en array-->
           <input
             type="button"
-            onclick="validering()"
+            onclick="{validering();}"
             value="Spara Uppgifter"
           />
           <input type="reset" />

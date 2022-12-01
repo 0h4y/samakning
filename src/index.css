@@ -58,6 +58,13 @@ main h1, main h2, main p {
     margin-bottom: 50px;
   }
 
+  #allaResorTabell td{
+    padding: 0.5rem;
+  }
+  .toUpperTd {
+    text-transform: capitalize;
+  }
+
   @media only screen and (max-width: 1000px) {
     #allaResorTabell {
         font-size: 10px;

@@ -51,6 +51,12 @@ function validering() {
   namn.forEach((element) => {
     // Skaffar symbolerna i texten
     let text = element.value;
+    if (text.length < 1) {
+      // Tillfällig alert
+      alert("Otillåtna tecken i " + element.id);
+      // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
+      valid++;
+    }
     // Går igenom varje symbol
     for (let i = 0; i < text.length; i++) {
       // Väljer index i strängen
@@ -81,7 +87,15 @@ function validering() {
   // Skaffar element från mobil-id
   const mobil = document.querySelector("#mobil");
   // Hämtar värdet från elementet, sparar till numbers
+
   let numbers = mobil.value;
+  console.log(numbers.length);
+  if (numbers.length != 10) {
+    // Tillfällig alert
+    alert("Mobilnumret måste vara 10 siffror!");
+    // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
+    valid++;
+  }
   // Går genom varje symbol i mobil
   for (let i = 0; i < numbers.length; i++) {
     // Väljer index
