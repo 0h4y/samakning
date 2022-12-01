@@ -125,13 +125,17 @@ const generateTable = async () => {
       const cell = document.createElement("td");
 
       cell.classList.add("toUpperTd");
-
+      
       if (j === 6) {
         cell.classList.remove("toUpperTd");
       }
 
-      const textToCell = allaResor[i][keysArray[j]];
+      let textToCell = allaResor[i][keysArray[j]];
+      if(j==5){
+        textToCell=textToCell.replace("T", " ");
+      }
       let cellText = document.createTextNode(textToCell);
+      
       if (j === 7) {
         cellText = document.createTextNode(textToCell + "kr");
       }
