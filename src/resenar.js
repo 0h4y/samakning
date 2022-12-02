@@ -9,6 +9,13 @@ const onload = (window.onload = (event) => {
     document.getElementById("nar").value = currentDate;
   }
 
+  const tiden =
+    new Date().toISOString().split(":")[0] +
+    ":" +
+    new Date().toISOString().split(":")[1];
+
+  document.getElementById("nar").setAttribute("min", tiden);
+
   const userdata = document.getElementById("userData");
 
   let allaAnvandare = new Array();
@@ -49,6 +56,9 @@ const onload = (window.onload = (event) => {
     const text = document.createTextNode(värden[i]);
     const cell = document.createElement("td");
     cell.appendChild(text);
+    if (!(i == 4)) {
+      cell.classList.add("capitalize");
+    }
 
     row.appendChild(dataCell);
     row.appendChild(cell);

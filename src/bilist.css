@@ -130,6 +130,10 @@ hr {
     justify-content: center;
 }
 
+.capitalize {
+    text-transform: capitalize;
+}
+
 @media (max-width: 620px) {
     .formContainer{font-size: 0.7rem}
 }

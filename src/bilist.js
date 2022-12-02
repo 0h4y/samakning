@@ -45,6 +45,9 @@ const onload = (window.onload = (event) => {
     const text = document.createTextNode(värden[i]);
     const cell = document.createElement("td");
     cell.appendChild(text);
+    if (!(i == 4)) {
+      cell.classList.add("capitalize");
+    }
 
     row.appendChild(dataCell);
     row.appendChild(cell);
