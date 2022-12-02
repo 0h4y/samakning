@@ -123,7 +123,6 @@ function validering() {
   let adress = email.value;
   if (adress.includes("å" || "ä" || "ö")) {
     Swal.fire("En Epostadress får inte innehålla å, ä eller ö");
-    alert();
     // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
     valid++;
   }
@@ -132,6 +131,13 @@ function validering() {
   if (!adress.includes("@")) {
     // Tillfällig alert
     Swal.fire("En Epostadress måste innehålla @.");
+    // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
+    valid++;
+  }
+  // Om värdet inte innehåller .
+  if (!adress.includes(".")) {
+    // Tillfällig alert
+    Swal.fire("En Epostadress måste innehålla en .");
     // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
     valid++;
   }
@@ -145,6 +151,8 @@ function validering() {
   if (valid == 0) {
     document.getElementById("collapseForm").style.display = "none";
     document.getElementById("bilreseval").style.visibility = "visible";
+    document.getElementById("bilreseval").style.position = "relative";
+    document.getElementById("form").style.justifyContent = "space-around";
 
     //Skickar data till AnvandarData
     const AnvandarDataObject = {
