@@ -4,11 +4,7 @@ Grupp gud, robin
 
 //window.onload körs efter att all HTML renderats klart.
 const onload = (window.onload = (event) => {
-  if (document.getElementById("nar") === "") {
-    let currentDate = new Date().toISOString().slice("0", "16");
-    document.getElementById("nar").value = currentDate;
-  }
-
+  //Ett min-värde för datuminmatningen skapas
   const tiden =
     new Date().toISOString().split(":")[0] +
     ":" +
@@ -16,14 +12,18 @@ const onload = (window.onload = (event) => {
 
   document.getElementById("nar").setAttribute("min", tiden);
 
+  //Nedan i onload loopas informationen ut för den nyligen registrerade användaren.
+  //Loopningen sker från localstorage till en table som genererad i div:en "userData"
+  //Användarnas lagras i JSON-format, däran används JSON.parse
   const userdata = document.getElementById("userData");
-
   let allaAnvandare = new Array();
-
   allaAnvandare = JSON.parse(localStorage.getItem("allaAnvändare"));
 
+  //Endast senaste användaren är intressant
   const senasteAnvandaren = allaAnvandare.pop();
 
+  //Värden från objektet allaAnvändare överförs till en array
+  //för att lätt kunna loopas ihop med titlarna och samma räknare
   const värden = [
     senasteAnvandaren.Förnamn,
     senasteAnvandaren.Efternamn,

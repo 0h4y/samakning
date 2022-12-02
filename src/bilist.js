@@ -4,15 +4,17 @@ Grupp, mattias, savio, martin K
 
 //window.onload körs efter att all HTML renderats klart.
 const onload = (window.onload = (event) => {
+  //Nedan i onload loopas informationen ut för den nyligen registrerade användaren.
+  //Loopningen sker från localstorage till en table som genererad i div:en "userData"
+  //Användarnas lagras i JSON-format, däran används JSON.parse
   const userdata = document.getElementById("userData");
-
   let allaAnvandare = new Array();
-
   allaAnvandare = JSON.parse(localStorage.getItem("allaAnvändare"));
 
+  //Endast senaste användaren är intressant
   const senasteAnvandaren = allaAnvandare.pop();
   //Värden från objektet allaAnvändare överförs till en array
-  //för att lätt kunna loopas ihop med titlarna till dessa värden som senare lagras i dataNamn
+  //för att lätt kunna loopas ihop med titlarna och samma räknare
   const värden = [
     senasteAnvandaren.Förnamn,
     senasteAnvandaren.Efternamn,
@@ -21,8 +23,7 @@ const onload = (window.onload = (event) => {
     senasteAnvandaren.epost,
   ];
 
-  //const värden = Object.values(senasteAnvandaren);
-
+  //Titelvärden för att förklara datan som loopas ut.
   const dataNamn = [
     "Förnamn:",
     "Efternamn:",
@@ -31,9 +32,11 @@ const onload = (window.onload = (event) => {
     "E-post:",
   ];
 
+  //element <table> och <tbody> skapas
   const tbl = document.createElement("table");
   const tblBody = document.createElement("tbody");
 
+  //Loop av Titelvärden, Användardata och tillhärande <tr> och <td> element för en snygg table.
   for (let i = 0; i < värden.length; i++) {
     const element = värden[i];
     const row = document.createElement("tr");
@@ -57,6 +60,7 @@ const onload = (window.onload = (event) => {
 
   tbl.appendChild(tblBody);
 
+  //Färdig <table> läggs till på sidan i "userData" div:en
   userdata.appendChild(tbl);
 });
 
@@ -113,6 +117,7 @@ avgångElem.setAttribute("min", dateTomorrow);
 //   hemgångElem.setAttribute("min", this.value);
 // };
 
+//Validering för att säkerställa att alla fält har fått indata
 function validering() {
   //Alla fält som ska valideras hämtas in
   const från = document.getElementById("startResa").value;
@@ -150,11 +155,9 @@ function saveResForm(event) {
   if (!validering()) {
     return;
   }
-  // buttonClick(event);
-  // preventDefault() hindrar sidan att laddas om
 
+  //Användarna som registrerats hämtas för att kunna skapa koppling mellan resan och användaren.
   let allaAnvandare = new Array();
-
   allaAnvandare = JSON.parse(localStorage.getItem("allaAnvändare"));
 
   //Lagra datan från formuläret i objektet {resFormData}
@@ -174,17 +177,25 @@ function saveResForm(event) {
     resetyp: "Bilist",
   };
 
+  //En array för att hålla alla resor skapas
   let allaResorArray = new Array();
 
+  //Om det finns resor sparade i local storage, hämtas dessa och parsas från JSON format till javascript
+  //Datan lagras i JSON-format då localstorage endast kan spara strängar.
   if (localStorage.getItem("allaResor")) {
     allaResorArray = JSON.parse(localStorage.getItem("allaResor"));
   }
 
+  //Den nya resan läggs till i array:en
   allaResorArray.push(resFormData);
 
+  //Arrayen sparas åter till localstorage i JSON-format
   localStorage.setItem("allaResor", JSON.stringify(allaResorArray));
 
+  //Loggning nedan för test
   console.log(JSON.parse(localStorage.getItem("allaResor")));
   console.log(JSON.parse(localStorage.getItem("allaAnvändare")));
+
+  //Till sist skickas personen vidare till startsidan där alla resor presenteras
   window.location.href = "index.html";
 }
