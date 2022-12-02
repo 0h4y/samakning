@@ -27,6 +27,7 @@ main h1, main h2, main p {
     background: #1abc9c;
     color: white;
     font-size: 1rem;
+    max-height: 80px;
   }
 
   #intro {
