@@ -131,6 +131,7 @@ const generateTable = async () => {
       }
 
       let textToCell = allaResor[i][keysArray[j]];
+      // Gör om datum så att den skrivs utan 'T', som kommer från ISOString();
       if (j == 5) {
         textToCell = textToCell.replace("T", " ");
       }
