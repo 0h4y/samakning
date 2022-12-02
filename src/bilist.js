@@ -113,34 +113,6 @@ avgångElem.setAttribute("min", dateTomorrow);
 //   hemgångElem.setAttribute("min", this.value);
 // };
 
-function buttonClick(event) {
-  //Arrayer för tid och datum
-  let date1 = [];
-  let date2 = [];
-  let time1 = [];
-  let time2 = [];
-
-  //plockar ut värdena från input
-  date1 = document.getElementById("avgangDatum").value;
-  // date2 = document.getElementById("hemgangDatum").value;
-  time1 = document.getElementById("avgangTid").value;
-  time2 = document.getElementById("hemgangTid").value;
-
-  //Splittar arraysen
-  date1 = date1.split("-");
-  date2 = date2.split("-");
-  time1 = time1.split(":");
-  time2 = time2.split(":");
-
-  //Jämför datum 0 elementen är år, 1 månad, 2 dag
-  if (date1[0] == date2[0] && date1[1] == date2[1] && date1[2] == date2[2]) {
-    //funkar ej.
-    if (time1[0] > time2[0] || (time1[0] == time2[0] && time1[1] > time2[1])) {
-      window.alert("Du kan ej åka hem innan du har anlänt.");
-    }
-  }
-}
-
 function validering() {
   //Alla fält som ska valideras hämtas in
   const från = document.getElementById("startResa").value;
