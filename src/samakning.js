@@ -56,7 +56,8 @@ function validering() {
     let text = element.value;
     if (text.length < 1) {
       // Tillfällig alert
-      alert("Otillåtna tecken i " + element.id);
+      Swal.fire("Otillåtna tecken i " + element.id);
+
       // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
       valid++;
     }
@@ -78,7 +79,7 @@ function validering() {
         (thisLetterChar < 246 || thisLetterChar > 246)
       ) {
         // Tillfällig alert
-        alert("Otillåtna tecken i " + element.id);
+        Swal.fire("Otillåtna tecken i " + element.id);
         // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
         valid++;
         // Alertar inte flera gånger
@@ -95,7 +96,7 @@ function validering() {
   console.log(numbers.length);
   if (numbers.length != 10) {
     // Tillfällig alert
-    alert("Mobilnumret måste vara 10 siffror!");
+    Swal.fire("Mobilnumret måste vara 10 siffror!");
     // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
     valid++;
   }
@@ -108,7 +109,7 @@ function validering() {
     // Tillåter endast siffror
     if (thisNumberChar < 48 || thisNumberChar > 57) {
       // Tillfällig alert
-      alert("Otillåtna tecken i Mobilnummer");
+      Swal.fire("Otillåtna tecken i Mobilnummer!");
       // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
       valid++;
       // Alertar inte flera gånger
@@ -121,7 +122,8 @@ function validering() {
   // Hämtar värdet från elementet
   let adress = email.value;
   if (adress.includes("å" || "ä" || "ö")) {
-    alert("En Epostadress får inte innehålla å, ä eller ö");
+    Swal.fire("En Epostadress får inte innehålla å, ä eller ö");
+    alert();
     // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
     valid++;
   }
@@ -129,13 +131,13 @@ function validering() {
   // Om värdet inte innehåller @
   if (!adress.includes("@")) {
     // Tillfällig alert
-    alert("En Epostadress måste innehålla @.");
+    Swal.fire("En Epostadress måste innehålla @.");
     // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
     valid++;
   }
   if (!document.getElementById("fodelsedatum").value) {
     // Tillfällig alert
-    alert("Fyll i ett födelsedatum tack.");
+    Swal.fire("Fyll i ett födelsedatum tack.");
     // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
     valid++;
   }

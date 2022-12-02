@@ -147,23 +147,23 @@ function validering() {
   const pris = document.getElementById("pris").value;
 
   if (datum.length < 1) {
-    alert("Fyll i ett datum för din resa");
+    Swal.fire("Fyll i ett datum för din resa");
     return false;
   }
   if (tid.length < 1) {
-    alert("Fyll i en tid för din resa");
+    Swal.fire("Fyll i en tid för din resa");
     return false;
   }
   if (från.length < 1) {
-    alert("Fyll i en startpunkt på din resa");
+    Swal.fire("Fyll i en startpunkt på din resa");
     return false;
   }
   if (till.length < 1) {
-    alert("Fyll i en slutpunkt på din resa");
+    Swal.fire("Fyll i en slutpunkt på din resa");
     return false;
   }
   if (pris.length < 1) {
-    alert("Fyll i ersättning för din resa");
+    Swal.fire("Fyll i ersättning för din resa");
     return false;
   } else {
     return true;
