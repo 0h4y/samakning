@@ -107,3 +107,7 @@ hr {
     margin-bottom: 20px;
     margin-top: 10px;
 }
+
+@media (max-width: 620px) {
+    .formContainer{font-size: 0.7rem}
+}

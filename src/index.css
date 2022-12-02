@@ -14,7 +14,7 @@ div {
     justify-content: center;
 }
 
-main h1, main h2, main p {
+main h1, main h2, main h4, main p {
     display: flex;
     text-align: center;
     justify-content: center;

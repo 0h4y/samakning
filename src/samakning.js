@@ -120,8 +120,18 @@ function validering() {
   // Skaffar element från epost-id
   const email = document.querySelector("#epost");
   // Hämtar värdet från elementet
-  let adress = email.value;
-  if (adress.includes("å" || "ä" || "ö")) {
+  let adress = email.value.toLowerCase();
+  if (adress.includes("å")) {
+    Swal.fire("En Epostadress får inte innehålla å, ä eller ö");
+    // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
+    valid++;
+  }
+  if (adress.includes("ä")) {
+    Swal.fire("En Epostadress får inte innehålla å, ä eller ö");
+    // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
+    valid++;
+  }
+  if (adress.includes("ö")) {
     Swal.fire("En Epostadress får inte innehålla å, ä eller ö");
     // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
     valid++;
@@ -160,7 +170,7 @@ function validering() {
       Efternamn: document.getElementById("Efternamn").value,
       fodelsedatum: document.getElementById("fodelsedatum").value,
       mobil: document.getElementById("mobil").value,
-      epost: document.getElementById("epost").value,
+      epost: document.getElementById("epost").value.toLowerCase(),
     };
 
     let allaAnvandareArray = new Array();

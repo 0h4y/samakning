@@ -128,4 +128,8 @@ hr {
     text-align: center;
     font-size: 20px;
   }
+  .formContainer{
+    font-size: 0.7rem
+  }
+
 }
