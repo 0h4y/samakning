@@ -138,8 +138,43 @@ function buttonClick(event) {
   }
 }
 
+function validering() {
+  //Alla fält som ska valideras hämtas in
+  const från = document.getElementById("startResa").value;
+  const till = document.getElementById("slutResa").value;
+  const datum = document.getElementById("avgangDatum").value;
+  const tid = document.getElementById("avgangTid").value;
+  const pris = document.getElementById("pris").value;
+
+  if (datum.length < 1) {
+    alert("Fyll i ett datum för din resa");
+    return false;
+  }
+  if (tid.length < 1) {
+    alert("Fyll i en tid för din resa");
+    return false;
+  }
+  if (från.length < 1) {
+    alert("Fyll i en startpunkt på din resa");
+    return false;
+  }
+  if (till.length < 1) {
+    alert("Fyll i en slutpunkt på din resa");
+    return false;
+  }
+  if (pris.length < 1) {
+    alert("Fyll i ersättning för din resa");
+    return false;
+  } else {
+    return true;
+  }
+}
+
 //Local storage
 function saveResForm(event) {
+  if (!validering()) {
+    return;
+  }
   // buttonClick(event);
   // preventDefault() hindrar sidan att laddas om
 

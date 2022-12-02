@@ -79,13 +79,37 @@ antalResenarer.addEventListener("input", (event) => {
   }
 });
 
-fran.addEventListener("input", (event) => {
-  if (antalResenarer.validity.typeMismatch) {
-    antalResenarer.setCustomValidity("mail!!");
+function validering() {
+  //Alla fält som ska valideras hämtas in
+  const från = document.getElementById("fran").value;
+  const till = document.getElementById("till").value;
+  const när = document.getElementById("nar").value;
+  const pris = document.getElementById("pris").value;
+
+  if (när.length < 1) {
+    alert("Fyll i ett datum för din resa");
+    return false;
   }
-});
+  if (från.length < 1) {
+    alert("Fyll i en startpunkt på din resa");
+    return false;
+  }
+  if (till.length < 1) {
+    alert("Fyll i en slutpunkt på din resa");
+    return false;
+  }
+  if (pris.length < 1) {
+    alert("Fyll i ersättning för din resa");
+    return false;
+  } else {
+    return true;
+  }
+}
 
 const saveResForm = (event) => {
+  if (!validering()) {
+    return;
+  }
   // preventDefault() hindrar sidan att laddas om
 
   const antalResenarer = document.getElementById("antalResenarer");
