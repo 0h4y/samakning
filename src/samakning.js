@@ -120,6 +120,12 @@ function validering() {
   const email = document.querySelector("#epost");
   // Hämtar värdet från elementet
   let adress = email.value;
+  if (adress.includes("å" || "ä" || "ö")) {
+    alert("En Epostadress får inte innehålla å, ä eller ö");
+    // Om man inte fyller i rätt så ökar valid så att man inte kan gå vidare om det är felaktigt
+    valid++;
+  }
+
   // Om värdet inte innehåller @
   if (!adress.includes("@")) {
     // Tillfällig alert

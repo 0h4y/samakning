@@ -59,8 +59,17 @@ main h1, main h2, main p {
   }
 
   #allaResorTabell td{
-    padding: 0.5rem;
+    padding: 0.4rem;
   }
+
+  #allaResorTabell table{
+    border: 0;
+  }
+
+  #allaResorTabell tr:nth-child(even) {background: #FFF}
+
+  #allaResorTabell tr:nth-child(odd) {background: #CCC}
+
   .toUpperTd {
     text-transform: capitalize;
   }
