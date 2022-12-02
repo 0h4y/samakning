@@ -23,11 +23,10 @@ main h1, main h2, main p {
 
 .header {
     margin: 0;
-    padding: 60px;
     text-align: center;
     background: #1abc9c;
     color: white;
-    font-size: 30px;
+    font-size: 1rem;
   }
 
   #intro {
@@ -63,12 +62,12 @@ main h1, main h2, main p {
   }
 
   #allaResorTabell table{
-    border: 0;
+    border: 2px solid #1abc9c;
   }
 
   #allaResorTabell tr:nth-child(even) {background: #FFF}
 
-  #allaResorTabell tr:nth-child(odd) {background: #CCC}
+  #allaResorTabell tr:nth-child(odd) {background: #1abc9c3f}
 
   .toUpperTd {
     text-transform: capitalize;

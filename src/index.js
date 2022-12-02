@@ -46,7 +46,7 @@ const generateTable = async () => {
   const enkelPendlingHeaderText = document.createTextNode("Enkel/pendling:");
   const narHeaderText = document.createTextNode("När:");
   const friTextHeaderText = document.createTextNode("Övrigt:");
-  const prisHeaderText = document.createTextNode("Pris:");
+  const prisHeaderText = document.createTextNode("Ersättning per mil:");
   const anvandareHeaderText = document.createTextNode("Registrerad av:");
 
   /* Elementen skapas i DOM:en inifrån och ut. (TEXT -> <td> -> <tr> -> <tbody> -> <table>) */
